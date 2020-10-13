@@ -115,19 +115,19 @@ ecm <- ExperimentColorMap(colData = list(celltype = celltype_colours))
 
 options(iSEE.maxlevels = 37)
 
-iSEE(sce, appTitle = "LPMP_EHF_B", colormap = ecm)
+iSEE(sce, appTitle = "LPMP_LHF_C", colormap = ecm)
 ```
 
 Deploy the iSEE application to the shiny server:
 
 ```{r}
-deployApp(appDir = "shiny/v1", appName = "LPMP_EHF_B", appTitle = "LPMP_EHF_B", launch.browser = FALSE, forceUpdate = TRUE)
+deployApp(appDir = "shiny/v1", appName = "LPMP_LHF_C", appTitle = "LPMP_LHF_C", launch.browser = FALSE, forceUpdate = TRUE)
 ```
 
 Allocate more memory to the iSEE application:
 
 ```{r}
-configureApp(appName = "LPMP_EHF_B", appDir = "shiny/v1", size = "xlarge")
+configureApp(appName = "LPMP_LHF_C", appDir = "shiny/v1", size = "xlarge")
 ```
 
 ### Integrated data
@@ -210,19 +210,19 @@ ecm <- ExperimentColorMap(colData = list(celltype = celltype_colours))
 
 options(iSEE.maxlevels = 37)
 
-iSEE(sce, appTitle = "LPMP_EHF_B_ATLAS", colormap = ecm)
+iSEE(sce, appTitle = "LPMP_LHF_C_ATLAS", colormap = ecm)
 ```
 
 Deploy the iSEE application to the shiny server:
 
 ```{r}
-deployApp(appDir = "shiny/v2", appName = "LPMP_EHF_B_ATLAS", appTitle = "LPMP_EHF_B_ATLAS", launch.browser = FALSE, forceUpdate = TRUE)
+deployApp(appDir = "shiny/v2", appName = "LPMP_LHF_C_ATLAS", appTitle = "LPMP_LHF_C_ATLAS", launch.browser = FALSE, forceUpdate = TRUE)
 ```
 
 Allocate more memory to the iSEE application:
 
 ```{r}
-configureApp(appName = "LPMP_EHF_B_ATLAS", appDir = "shiny/v2", size = "xlarge")
+configureApp(appName = "LPMP_LHF_C_ATLAS", appDir = "shiny/v2", size = "xlarge")
 ```
 
 ## Summary
