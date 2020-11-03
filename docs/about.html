@@ -386,6 +386,10 @@ $(document).ready(function () {
     <li>
       <a href="18-cell-exploration.html"></a>
     </li>
+    <li class="dropdown-header">Cell heterogeneity</li>
+    <li>
+      <a href="19-cell-heterogeneity.html"></a>
+    </li>
   </ul>
 </li>
 <li>
@@ -437,7 +441,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-13
+<strong>Last updated:</strong> 2020-11-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -468,16 +472,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree1657516fc79b01589610152c75296ff1269b521dtargetblank1657516a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/1657516fc79b01589610152c75296ff1269b521d" target="_blank">1657516</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree74adc1bad96d9cb2b75947cb91118e185e0f79d5targetblank74adc1ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/74adc1bad96d9cb2b75947cb91118e185e0f79d5" target="_blank">74adc1b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree1657516fc79b01589610152c75296ff1269b521dtargetblank1657516a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree74adc1bad96d9cb2b75947cb91118e185e0f79d5targetblank74adc1ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/1657516fc79b01589610152c75296ff1269b521d" target="_blank">1657516</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/74adc1bad96d9cb2b75947cb91118e185e0f79d5" target="_blank">74adc1b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -492,7 +496,7 @@ Ignored files:
     Ignored:    data/cell-exploration.csv
     Ignored:    data/cell-lineage.csv
     Ignored:    data/gene-sets.csv
-    Ignored:    data/hello.txt
+    Ignored:    data/lineage-markers.csv
     Ignored:    data/pyscenic-activity.csv
     Ignored:    data/pyscenic-modules.csv
     Ignored:    data/pyscenic-regulons.csv
@@ -513,8 +517,14 @@ Ignored files:
     Ignored:    output/14-atlas-markers.rds
     Ignored:    shiny/
 
+Untracked files:
+    Untracked:  analysis/19-cell-heterogeneity.Rmd
+    Untracked:  slides/
+
 Unstaged changes:
-    Modified:   analysis/interactive.Rmd
+    Modified:   _workflowr.R
+    Modified:   _workflowr.sh
+    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -553,6 +563,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/74adc1bad96d9cb2b75947cb91118e185e0f79d5/analysis/about.Rmd" target="_blank">74adc1b</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-13
+</td>
+<td>
+publish
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/35ed767af9014c7f0b04e895ee673acd91770fdc/docs/about.html" target="_blank">35ed767</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-13
+</td>
+<td>
+publish
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -628,7 +672,7 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Welcome to the LPMP-EHF analysis website.</p>
+<p>Welcome to the LPMP-LHF analysis website.</p>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
