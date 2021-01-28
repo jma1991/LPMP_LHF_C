@@ -14,7 +14,8 @@
 
 <title>Marker gene detection</title>
 
-<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -28,14 +29,14 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<script src="site_libs/datatables-binding-0.17/datatables.js"></script>
 <link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -47,6 +48,8 @@ div.section {
 }
 </style>
 
+
+
 <style type="text/css">
   code{white-space: pre-wrap;}
   span.smallcaps{font-variant: small-caps;}
@@ -54,7 +57,7 @@ div.section {
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      </style>
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -100,6 +103,7 @@ h6 {
   text-align: left;
 }
 </style>
+
 
 
 
@@ -443,7 +447,42 @@ div.tocify {
     <li>
       <a href="11-atlas-neighbors.html"></a>
     </li>
+    <li class="dropdown-header">Atlas trajectory</li>
+    <li>
+      <a href="12-atlas-trajectory.html"></a>
+    </li>
+    <li class="dropdown-header">Atlas clustering</li>
+    <li>
+      <a href="13-atlas-clustering.html"></a>
+    </li>
+    <li class="dropdown-header">Atlas markers</li>
+    <li>
+      <a href="14-atlas-markers.html"></a>
+    </li>
+    <li class="dropdown-header">Scenic analysis</li>
+    <li>
+      <a href="15-scenic-analysis.html"></a>
+    </li>
+    <li class="dropdown-header">Geneset activity</li>
+    <li>
+      <a href="16-geneset-activity.html"></a>
+    </li>
+    <li class="dropdown-header">Haystack analysis</li>
+    <li>
+      <a href="17-haystack-analysis.html"></a>
+    </li>
+    <li class="dropdown-header">Cell type exploration</li>
+    <li>
+      <a href="18-cell-exploration.html"></a>
+    </li>
+    <li class="dropdown-header">Cell heterogeneity</li>
+    <li>
+      <a href="19-cell-heterogeneity.html"></a>
+    </li>
   </ul>
+</li>
+<li>
+  <a href="interactive.html">Interactive</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -453,7 +492,7 @@ div.tocify {
 </li>
 <li>
   <a href="https://github.com/jma1991/LPMP_LHF_C">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -468,14 +507,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">Marker gene detection</h1>
 <h4 class="author">James Ashmore</h4>
-<h4 class="date">02 October, 2020</h4>
+<h4 class="date">28 January, 2021</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -484,7 +523,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -493,10 +532,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-02
+<strong>Last updated:</strong> 2021-01-28
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>LPMP_LHF_C/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -512,12 +551,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -541,7 +580,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed52694887code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(52694887)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(52694887)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -584,16 +623,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong2724555"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 2724555 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree4202cde9a52687629fa1f4e3e35607f027ce2160targetblank4202cdea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/4202cde9a52687629fa1f4e3e35607f027ce2160" target="_blank">4202cde</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong2724555" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree4202cde9a52687629fa1f4e3e35607f027ce2160targetblank4202cdea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 2724555. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/4202cde9a52687629fa1f4e3e35607f027ce2160" target="_blank">4202cde</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -603,48 +642,40 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/.Rhistory
+    Ignored:    analysis/cache/
+    Ignored:    data/cell-exploration.csv
+    Ignored:    data/cell-lineage.csv
+    Ignored:    data/gene-sets.csv
+    Ignored:    data/lineage-markers.csv
+    Ignored:    data/pyscenic-activity.csv
+    Ignored:    data/pyscenic-modules.csv
+    Ignored:    data/pyscenic-regulons.csv
+    Ignored:    data/salmon-quant.rds
+    Ignored:    output/01-quality-control.rds
+    Ignored:    output/02-normalization.rds
+    Ignored:    output/03-feature-selection.rds
+    Ignored:    output/04-reduced-dimensions.rds
+    Ignored:    output/05-clustering.rds
+    Ignored:    output/06-doublet-detection.rds
+    Ignored:    output/07-cell-cycle.rds
+    Ignored:    output/08-marker-detection.rds
+    Ignored:    output/09-cell-annotation.rds
+    Ignored:    output/10-atlas-integration.rds
+    Ignored:    output/11-atlas-neighbors.rds
+    Ignored:    output/12-atlas-trajectory.rds
+    Ignored:    output/13-atlas-clustering.rds
+    Ignored:    output/14-atlas-markers.rds
+    Ignored:    shiny/
 
 Untracked files:
-    Untracked:  _workflowr.R
-    Untracked:  _workflowr.sh
-    Untracked:  analysis/01-quality-control.Rmd
-    Untracked:  analysis/02-normalization.Rmd
-    Untracked:  analysis/03-feature-selection.Rmd
-    Untracked:  analysis/04-reduced-dimensions.Rmd
-    Untracked:  analysis/05-clustering.Rmd
-    Untracked:  analysis/06-doublet-detection.Rmd
-    Untracked:  analysis/07-cell-cycle.Rmd
-    Untracked:  analysis/08-marker-detection.Rmd
-    Untracked:  analysis/09-cell-annotation.Rmd
-    Untracked:  analysis/10-atlas-integration.Rmd
-    Untracked:  analysis/11-atlas-neighbors.Rmd
-    Untracked:  analysis/11-scenic-analysis.Rmd
-    Untracked:  analysis/12-haystack-analysis.Rmd
-    Untracked:  analysis/13-geneset-activity.Rmd
-    Untracked:  analysis/Untitled.Rmd
-    Untracked:  analysis/cache/
-    Untracked:  analysis/temp.Rmd
-    Untracked:  analysis/trajectory-analysis.Rmd
-    Untracked:  data/cell-lineage.csv
-    Untracked:  data/cell-markers.csv
-    Untracked:  data/pyscenic-activity.csv
-    Untracked:  data/pyscenic-modules.csv
-    Untracked:  data/pyscenic-regulons.csv
-    Untracked:  data/salmon-quant.rds
-    Untracked:  output/01-quality-control.rds
-    Untracked:  output/02-normalization.rds
-    Untracked:  output/03-feature-selection.rds
-    Untracked:  output/04-reduced-dimensions.rds
-    Untracked:  output/05-clustering.rds
-    Untracked:  output/06-doublet-detection.rds
-    Untracked:  output/07-cell-cycle.rds
+    Untracked:  slides/
 
 Unstaged changes:
-    Modified:   _workflowr.yml
-    Modified:   analysis/_site.yml
-    Modified:   analysis/about.Rmd
-    Modified:   analysis/index.Rmd
-    Modified:   analysis/license.Rmd
+    Modified:   _workflowr.R
+    Modified:   analysis/09-cell-annotation.Rmd
+    Modified:   analysis/10-atlas-integration.Rmd
+    Modified:   analysis/interactive.Rmd
 
 </code></pre>
 <p>
@@ -657,9 +688,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/08-marker-detection.Rmd</code>) and HTML (<code>docs/08-marker-detection.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/08-marker-detection.html" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+<td>
+publish
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/2df23c6ff6e7ada48f7bab5ddbbcc2a9a67c7158/analysis/08-marker-detection.Rmd" target="_blank">2df23c6</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+<td>
+publish
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -698,36 +789,31 @@ sig &lt;- lapply(res, subset, FDR &lt; 0.05)
 
 sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="table" class="section level4 tabset">
-<h4>Table</h4>
+<h4 class="tabset">Table</h4>
 <p>Create a table of all significant marker genes for each cluster:</p>
 <div id="cluster-1" class="section level5">
 <h5>Cluster 1</h5>
 <div id="htmlwidget-54d942b8b7fe8113af20" style="width:960px;height:500px;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-54d942b8b7fe8113af20">{"x":{"filter":"none","data":[["Tgfb2","Ankrd40","Msgn1","Dll3"],[1,1,1,2],[7.84823798706733e-07,7.47017809792786e-07,7.22633720407114e-07,2.26117582598738e-06],[0.0145116536460204,0.0145116536460204,0.0145116536460204,0.0313574210608365],[-5.48209719750565,4.63351758530628,4.92033709978543,5.48908922330953],[-2.33975711937714,2.67516739245587,4.92033709978543,5.48908922330953],[-3.36637086057226,2.28026976934541,1.36145865557913,2.38440941414542],[-5.48209719750565,1.57845442217687,2.12900691804926,4.78361538570915],[-1.97022739920631,4.63351758530628,2.88738047518472,5.13803132033443]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.3<\/th>\n      <th>logFC.4<\/th>\n      <th>logFC.5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-54d942b8b7fe8113af20">{"x":{"filter":"none","data":[["Ccdc138","Tmem150a","Apln","Igfbp2","Ndufb8","Mettl8","Gyg","Phf13","Cdh11","Cul7","Snx10","Hoxd9","Psrc1","Lsm7","Slc2a1","Homez","Pmaip1","Usp33","Scn2b","Mdk","Prom1","Tmem104","Foxf1","Cfc1","Etv4","Esf1","Hand1","Gm12940","Nek2","Sp5","B3gnt7","Zfp157","Cdh1","Jmjd1c","Tmem165","Acot7","Nudc","Ifitm1","Zic3","Tom1l1"],[1,1,1,2,2,2,3,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,12,12,13,13,14,14,15,15,16,17,17,18,18,19,20,21],[3.17296111857503e-05,1.23031878659052e-07,4.3267449745084e-08,8.29370824991969e-08,2.66050991835868e-07,7.82587302109733e-06,1.82718803717e-05,4.97921549385615e-07,4.12933018856811e-07,6.19708926940336e-07,1.59604064148404e-06,1.67220145763238e-06,1.66531511648297e-06,1.74738479544735e-06,1.8891178782811e-06,2.74785941267462e-06,2.04012799472015e-06,2.84635398240353e-06,2.21989944876864e-06,3.88108089392902e-06,2.65602613264168e-06,7.26352890117235e-06,3.07826993338345e-06,3.21821805635526e-06,3.41309705547957e-06,9.88070426111934e-06,6.40593370326618e-06,1.08410881910469e-05,1.24219190135615e-05,7.75806550150866e-06,8.50188027168336e-06,1.40604844946995e-05,9.34418213757282e-06,9.99399631318239e-06,2.05231012378679e-05,1.29833580867153e-05,2.56888050395978e-05,1.82991682850653e-05,2.55806539622025e-05,3.02481629418828e-05],[0.0440018315521189,0.0022749004470321,0.0022749004470321,0.0022749004470321,0.00368952864203186,0.0173643600941316,0.0290020903983102,0.00460336771099491,0.00458116149780124,0.00491083912661534,0.0087052261534709,0.0087052261534709,0.0087052261534709,0.0087052261534709,0.0087052261534709,0.0092876530445827,0.0087052261534709,0.0092876530445827,0.00879571730876037,0.0102517827746256,0.0092876530445827,0.0173643600941316,0.00939567230547804,0.00939567230547804,0.00946639533822537,0.0191164472237428,0.0161519794751763,0.020045533434852,0.0222276216000409,0.0173643600941316,0.0181387615596364,0.0236348222850144,0.0191164472237428,0.0191164472237428,0.031623248576827,0.0225062455133807,0.0374995711671455,0.0290020903983102,0.0374995711671455,0.0430229704243379],[3.58065793688611,3.57779602875332,5.41137969808739,3.88132732893717,-1.09893057371624,4.48858418389098,4.81185221329937,4.12271956433763,-5.02996813271941,2.86020265207262,4.98118211656623,-3.74925725901231,4.68590808295326,-0.944843896472178,1.94908827533093,4.84397637358561,6.14063360025443,4.73411775015235,4.33652067518006,-1.31736904518398,5.21866256074768,2.85465543582581,-4.52700453896694,-3.57005274954554,2.76199096248104,1.98040834778433,-4.61218787245947,-2.92374954532367,4.1218023686065,3.51249160779608,2.90512899874155,4.96179974014698,4.79428205497382,4.14420524476336,5.19437266303933,3.22692488203384,-0.889452250916365,-1.1012005912942,4.66831754061295,3.66184703269791],[2.14017251650344,3.57779602875332,2.43252774941417,1.10153846336435,-1.09893057371624,4.48858418389098,4.81185221329937,4.12271956433763,0.571580161940909,2.86020265207262,3.64460715901385,0.0168505827077736,4.68590808295326,-0.944843896472178,0.410003226813549,4.84397637358561,2.63385186041668,4.73411775015235,3.24534116795411,-1.31736904518398,1.65770181911432,2.85465543582581,-0.9993046145166,-1.28646147355967,0.276059815923261,1.98040834778433,-1.8932648895991,-2.92374954532367,4.1218023686065,2.45754606172795,1.60502499015345,4.96179974014698,1.08985595075643,3.06348588538572,5.19437266303933,1.21036921319418,-0.889452250916365,-1.06426129622884,2.36505371974928,1.64628619265257],[2.56337895032151,0.787361363944697,5.41137969808739,3.88132732893717,-0.0347015828238399,3.16799451320739,3.14217453973273,1.95412953040076,-5.02996813271941,0.636694612064312,4.98118211656623,-3.74925725901231,2.06951202684622,0.0131864127969594,1.94908827533093,2.51593630192384,6.14063360025443,0.665366135124833,4.33652067518006,-0.0996556016981263,5.21866256074768,1.46248984882814,-4.52700453896694,-3.57005274954554,2.76199096248104,0.783808699357703,-4.61218787245947,-0.691271825019601,0.18875278157591,3.51249160779608,2.90512899874155,1.90994243308769,4.79428205497382,4.14420524476336,1.01935956445867,3.22692488203384,-0.110157942213824,-1.1012005912942,4.66831754061295,3.66184703269791],[3.58065793688611,1.3801441758777,0.702273666811936,0.660960576334888,-0.463021645940163,3.51706494049557,3.03346296111237,1.64479728050749,-0.124034778700433,0.0683774596298514,1.18662423835647,-0.633068010698584,1.23313510332844,-0.348313972592956,0.243167729889622,1.93121223991741,0.0232327897716651,0.541398950421208,1.81306545954601,-0.588786675750663,0.20892226430407,1.41991792667965,0.00518087211469406,-0.610997345704072,0.207624400825193,0.357793089412683,-0.51877521367416,-1.63177965827277,1.01471499341047,0.440606570010796,0.192489185278504,1.54068980455177,0.171469335473148,2.09203778937098,-0.0072796658911729,-0.0849670733694161,-0.16342999686935,-0.573196342061108,0.656675388022147,1.70006540715018]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.3<\/th>\n      <th>logFC.4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="cluster-2" class="section level5">
 <h5>Cluster 2</h5>
 <div id="htmlwidget-5176acca0d34870ffd10" style="width:960px;height:500px;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5176acca0d34870ffd10">{"x":{"filter":"none","data":[["Msgn1","Ccnb1","Hoxd9","Usp33","Dll3","Cdh11","Prom1","Pcbp1","Pknox2","Igfbp2","Etv4","Foxf1","Slc2a1"],[1,1,1,2,2,2,3,3,3,4,5,6,7],[7.22633720407114e-07,1.83758594443621e-07,6.74201565000355e-08,4.89958083656976e-07,2.26117582598738e-06,6.60649677125066e-07,2.92298962710389e-06,8.39944637862926e-06,5.45691910357113e-07,3.26295653381916e-06,6.86838592697225e-06,8.11184042445651e-06,1.08635540657352e-05],[0.00668086918411718,0.00509663649619104,0.00373986350121347,0.00668086918411718,0.017918526320478,0.00668086918411718,0.0201110513208314,0.0388271408390787,0.00668086918411718,0.0201110513208314,0.0380996235755078,0.0388271408390787,0.046354785198492],[-4.92033709978543,-1.88724486326621,-4.17174739745615,-5.39033463150835,-5.48908922330953,-5.44341703313944,5.31265201310264,-0.743945152787305,-4.19096714540312,3.96776961657054,2.9047108156941,-4.62325140759696,2.02204342493415],[-4.92033709978543,-1.48365790930024,-0.878020345246849,-4.33032113249763,-5.48908922330953,-2.75253421124447,0.0572936506188375,-0.743945152787305,-2.74661882090629,0.962377736402851,1.28902898253176,-1.17851546771869,1.05259416784547],[-3.55887844420631,-1.88724486326621,-0.0364007241780409,-5.39033463150835,-3.10467980916411,-1.541427914777,-0.290234586723093,-0.397181393819428,-4.19096714540312,-0.0650071524524121,0.339211391326471,0.072912401577435,0.397820247273662],[-2.79133018173617,-0.730690006035662,-4.17174739745615,-3.5734832979501,-0.705473837600385,-5.44341703313944,5.31265201310264,-0.532685152575361,-3.21392205692521,3.96776961657054,2.9047108156941,-4.62325140759696,2.02204342493415],[-2.03295662460071,-1.54689416711344,-0.711475588181847,-3.78151095040276,-0.351057902975101,-0.929091834290575,-0.026284551744264,-0.210420750126744,-2.39047500538023,-0.450753667678089,-0.343064860576416,0.345481162514988,-0.378383109951862]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.3<\/th>\n      <th>logFC.4<\/th>\n      <th>logFC.5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5176acca0d34870ffd10">{"x":{"filter":"none","data":[["Ndufb8","Usp33","Tmem150a","Lsm7","Cul7","Ccnb1","Phf13","Plod2","Cfl1","Tmem9b","Gm6594","Psrc1","Tmem165","Psma7","Ssh1","Ccdc66","Homez","Sod1","Gm2000","Mdk","Cdh11","Tmem104","Adck5","Mettl8","mt-Rnr2","Esf1","Hoxd9","Gm12940","Nek2","Ndufa7","Nudc","CT010467.1","Zfp157","Gyg","Gm47428","Tmem250-ps","Etv4","Slc39a1","Prodh"],[1,1,1,2,2,3,3,3,4,4,5,5,5,6,6,7,7,7,8,9,9,10,10,11,11,12,13,13,14,14,14,15,15,16,17,18,19,20,21],[1.33025495917934e-07,1.42812148300138e-06,1.23031878659052e-07,1.27812847272667e-06,6.19708926940336e-07,7.16009234524635e-06,4.97921549385615e-07,2.57064507773057e-06,2.66717962093968e-06,1.21715937856313e-05,4.66303504992504e-06,1.66531511648297e-06,1.0261550618934e-05,5.10191217705495e-06,2.19888555679469e-05,3.38394198632229e-05,2.74785941267462e-06,5.71306435430339e-06,6.0617584682909e-06,3.88108089392902e-06,8.13357155125654e-06,7.26352890117235e-06,8.59432745560616e-06,7.82587302109733e-06,9.01336898729648e-06,9.88070426111934e-06,1.1706340894288e-05,1.08410881910469e-05,1.24219190135615e-05,1.17668182714525e-05,2.56888050395978e-05,1.26564211663296e-05,1.40604844946995e-05,1.82718803717e-05,1.87813010258532e-05,2.47869695904889e-05,2.91474906934512e-05,3.39933510678376e-05,3.31100315754007e-05],[0.00368952864203187,0.0131966706894896,0.00368952864203187,0.0131966706894896,0.00859396847157685,0.0237008948045253,0.00859396847157685,0.0152426509480474,0.0152426509480474,0.0242091151212921,0.0215552681045327,0.0131966706894896,0.0242091151212921,0.0217698592594935,0.0369619335518055,0.0483498763354877,0.0152426509480474,0.0224167869329709,0.0224167869329709,0.0195715852970124,0.0237461761852501,0.0237008948045253,0.0238085995759201,0.0237461761852501,0.0238085995759201,0.0242091151212921,0.0242091151212921,0.0242091151212921,0.0242091151212921,0.0242091151212921,0.0407138201243294,0.0242091151212921,0.0259983045135159,0.0325567984126594,0.0325567984126594,0.0404399408868826,0.044912234896012,0.0483498763354877,0.0483498763354877],[1.0642289908924,-4.73411775015235,-3.57779602875332,0.944843896472178,-2.86020265207262,-1.61947012081074,-4.12271956433763,-4.70798549072768,0.585295530983739,-3.35865171126784,1.26710064030571,-4.68590808295326,-5.2016523289305,0.945517622276515,-3.55422554226328,-5.00581265869632,-4.84397637358561,0.925016086600706,0.773194463632775,1.31736904518398,-5.60154829466032,-2.85465543582581,-3.68700417272996,-4.48858418389098,-1.36733827584842,-1.98040834778433,-3.76610784172009,2.92374954532367,-4.1218023686065,0.799091745394288,0.889452250916365,-1.63786028023056,-4.96179974014698,-4.81185221329937,2.7497381334464,1.7586931166948,2.48593114655778,1.44212354092534,-2.99541947579387],[1.09893057371624,-4.73411775015235,-3.57779602875332,0.944843896472178,-2.86020265207262,-1.55908460988745,-4.12271956433763,-3.19937241274885,0.380447853942464,-1.74038871673252,0.9307569793457,-4.68590808295326,-5.19437266303933,0.778910732986493,-1.13681243120375,-3.7067025348626,-4.84397637358561,0.761476643629583,0.607732960789363,1.31736904518398,-0.571580161940909,-2.85465543582581,-2.00398597251102,-4.48858418389098,-1.11852929662924,-1.98040834778433,-0.0168505827077736,2.92374954532367,-4.1218023686065,0.525368495403182,0.889452250916365,-1.41832729808961,-4.96179974014698,-4.81185221329937,1.31269401634566,0.896693774993317,-0.276059815923261,0.949551502093585,-2.96664643633922],[1.0642289908924,-4.06875161502752,-2.79043466480862,0.958030309269137,-2.22350804000831,-1.10088255516883,-2.16859003393687,-4.70798549072768,0.585295530983739,-2.94543146323628,1.26710064030571,-2.61639605610703,-4.17501309858066,0.945517622276515,-2.62097654861426,-4.7055731964361,-2.32804007166177,0.925016086600706,0.773194463632775,1.21771344348585,-5.60154829466032,-1.39216558699767,-3.68700417272996,-1.3205896706836,-1.36733827584842,-1.19659964842663,-3.76610784172009,2.23247772030407,-3.93304958703059,0.799091745394288,0.779294308702541,-1.63786028023056,-3.0518573070593,-1.66967767356664,2.7497381334464,1.7586931166948,2.48593114655778,1.44212354092534,-2.99541947579387],[0.635908927776073,-4.19271879973114,-2.19765185287562,0.596529923879221,-2.79182519244277,-1.61947012081074,-2.47792228383014,-3.24847268287359,0.290035104806922,-3.35865171126784,0.932249079743649,-3.45277297962481,-5.2016523289305,0.537887566553074,-3.55422554226328,-5.00581265869632,-2.9127641336682,0.377177262248994,0.440311441667975,0.728582369433315,-0.695614940641342,-1.43473750914616,-1.13204914576104,-0.971519243395412,-0.832251298150503,-1.62261525837165,-0.649918593406358,1.29196988705089,-3.10708737519603,0.245762509103915,0.726022254047015,-1.09114170615366,-3.42110993559521,-1.77838925218699,1.16387344723938,0.466401896299896,-0.0684354150980679,0.887823877185221,-1.97032372454359]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.3<\/th>\n      <th>logFC.4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="cluster-3" class="section level5">
 <h5>Cluster 3</h5>
 <div id="htmlwidget-609e2af08312968bb79c" style="width:960px;height:500px;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-609e2af08312968bb79c">{"x":{"filter":"none","data":[["Ccnb1","Zic3","Igfbp2","Usp33","Gm6736","Pknox2","Snx10","Rerg","Prom1","Scn2b","Foxf1","Hoxd9"],[1,1,2,2,3,3,4,5,6,7,8,9],[1.83758594443621e-07,1.71865117742753e-07,2.98934798081048e-07,4.89958083656976e-07,6.38583259381587e-07,5.45691910357113e-07,8.71273211519181e-07,1.06962868139734e-06,1.81134949782257e-06,6.15452618619409e-06,6.57972067204672e-06,8.77780431590918e-06],[0.00509663649619104,0.00509663649619104,0.00552740406145127,0.00590380866352601,0.00590380866352601,0.00590380866352601,0.00690434233088293,0.00741667157322397,0.0111641519993018,0.0331803350362822,0.0331803350362822,0.0405761319339832],[1.88724486326621,5.50940284980792,4.03277676902295,5.39033463150835,3.81930538587017,4.19096714540312,5.53027327479618,4.24616407884799,5.60288659982573,4.4148622111505,-4.69616380917439,-4.13534667327811],[0.403586953965965,0.0936903538065552,1.02738488885526,1.06001349901072,0.38718108456049,1.44434832449683,3.28424101789825,2.01230719840157,0.347528237341931,2.58625390242653,-1.25142786929612,-0.841619621068808],[1.88724486326621,1.60829953991973,0.0650071524524121,5.39033463150835,1.63291042827213,4.19096714540312,2.59582060109214,3.31676959645995,0.290234586723093,1.80991737470448,-0.072912401577435,0.0364007241780409],[1.15655485723054,5.50940284980792,4.03277676902295,1.81685133355825,3.81930538587017,0.977045088477911,5.53027327479618,4.24616407884799,5.60288659982573,4.4148622111505,-4.69616380917439,-4.13534667327811],[0.340350696152765,0.5328067542073,-0.385746515225677,1.60882368110559,-0.0402816159640143,1.80049214002289,1.91024698946408,0.843090764721071,0.263950034978829,0.84264925297058,0.272568760937553,-0.675074864003806]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.4<\/th>\n      <th>logFC.5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-609e2af08312968bb79c">{"x":{"filter":"none","data":[["Ndufb8","Apln","Igfbp2","Lsm7","Cdh11","Pmaip1","Plod2","Cfl1","Snx10","Foxb1","F2rl1","Gm6594","Hoxd9","Psma7","Slc2a1","Foxf1","Sod1","Cfc1","Gm2000","Scn2b","Prom1","Adck5","Tbx3","Hand1","mt-Rnr2","Etv4","Mdk","Acot7","Phlda2","Ndufa7","Sp5","Cdh1","B3gnt7","CT010467.1","Usp33","Nt5e","Jmjd1c","Gm47428","Tmem250-ps","Ifitm1","Slc39a1","Zic3","Tom1l1","Prodh"],[1,1,2,2,2,3,3,4,4,4,5,5,5,6,6,6,7,8,8,8,9,10,10,11,11,12,12,12,13,14,14,14,15,15,16,16,17,17,18,19,20,20,21,21],[1.39318602433979e-07,4.41539662868185e-09,8.29370824991969e-08,2.55625694545335e-06,4.74545453481008e-08,5.1023658736189e-08,2.57064507773057e-06,2.66717962093968e-06,1.59604064148404e-06,3.05190184105725e-07,1.04751671256574e-06,4.66303504992504e-06,1.67220145763238e-06,5.10191217705495e-06,1.8891178782811e-06,1.53913496669172e-06,5.71306435430339e-06,2.41223286962939e-06,6.0617584682909e-06,2.21989944876864e-06,2.65602613264168e-06,8.59432745560616e-06,6.30274231787599e-06,3.63148702264577e-06,9.01336898729648e-06,3.41309705547957e-06,1.09257892412171e-05,6.49167904335765e-06,1.48859478781309e-05,1.17668182714525e-05,7.75806550150866e-06,8.70141829046761e-06,8.50188027168336e-06,1.26564211663296e-05,1.36092523817018e-05,2.35505412191659e-05,9.99399631318239e-06,1.87813010258532e-05,2.47869695904889e-05,1.82991682850653e-05,3.39933510678376e-05,2.55806539622025e-05,3.02481629418828e-05,3.51255359470725e-05],[0.00154562843912305,0.000244926466389611,0.00115015072582824,0.00870300710312616,0.00094344445791838,0.00094344445791838,0.00870300710312616,0.00870300710312616,0.00870300710312616,0.00282153411708811,0.00830097136610486,0.0129331608627196,0.00870300710312616,0.0134765795415912,0.00870300710312616,0.00870300710312616,0.0144039971285637,0.00870300710312616,0.0144039971285637,0.00870300710312616,0.00870300710312616,0.0166440128962251,0.0144039971285637,0.0106022219280623,0.0166660197031441,0.0105182170424726,0.018939514218736,0.0144039971285637,0.0229371781874389,0.0197793083738103,0.0165518327474687,0.0166440128962251,0.0166440128962251,0.0206489511328668,0.021569109681868,0.0334967197940603,0.0178831280480174,0.0274162512948711,0.0343739497538502,0.0274162512948711,0.0438522134205586,0.0346093769740813,0.0399499011083138,0.0442829228300013],[-1.0642289908924,-4.70910603127545,-3.88132732893717,-0.958030309269137,4.90593335401898,-6.11740081048277,4.70798549072768,-0.585295530983739,-4.98118211656623,-3.38623995026578,-2.94513579341418,-1.26710064030571,3.74925725901231,-0.945517622276515,-1.94908827533093,4.53218541108164,-0.925016086600706,3.57005274954554,-0.773194463632775,-4.33652067518006,-5.21866256074768,3.68700417272996,3.72759444102066,4.61218787245947,1.36733827584842,-2.76199096248104,-1.21771344348585,-3.31189195540326,2.28321778078834,-0.799091745394288,-3.51249160779608,-4.79428205497382,-2.90512899874155,1.63786028023056,4.06875161502752,-4.15834336220222,-4.14420524476336,-2.7497381334464,-1.7586931166948,1.1012005912942,-1.44212354092534,-4.66831754061295,-3.66184703269791,2.99541947579387],[0.0347015828238399,-5.41137969808739,-3.88132732893717,-0.0131864127969594,5.02996813271941,-6.14063360025443,1.50861307797883,-0.204847677041275,-4.98118211656623,-2.05951828857353,-2.11725081914453,-0.336343660960014,3.74925725901231,-0.166606889290023,-1.94908827533093,4.52700453896694,-0.163539442971123,3.57005274954554,-0.165461502843412,-4.33652067518006,-5.21866256074768,1.68301820021894,3.35800098019966,4.61218787245947,0.248808979219179,-2.76199096248104,0.0996556016981263,-3.22692488203384,2.42653601887588,-0.273723249991106,-3.51249160779608,-4.79428205497382,-2.90512899874155,0.219532982140951,-0.665366135124833,-3.87513958496101,-4.14420524476336,-1.43704411710074,-0.861999341701479,1.1012005912942,-0.492572038831756,-4.66831754061295,-3.66184703269791,0.0287730394546495],[-1.0642289908924,-2.97885194867321,-2.77978886557282,-0.958030309269137,5.60154829466032,-3.50678173983775,4.70798549072768,-0.585295530983739,-1.33657495755238,-1.81929773086371,-0.896486763603648,-1.26710064030571,3.76610784172009,-0.945517622276515,-1.53908504851738,3.52769992445034,-0.925016086600706,2.28359127598588,-0.773194463632775,-1.09117950722594,-3.56096074163336,3.68700417272996,3.50774095226559,2.71892298286036,1.36733827584842,-2.48593114655778,-1.21771344348585,-2.01655566883967,0.146428147669761,-0.799091745394288,-1.05494554606813,-3.70442610421739,-1.3001040085881,1.63786028023056,4.06875161502752,-2.41024343876817,-1.08071935937764,-2.7497381334464,-1.7586931166948,0.0369392950653591,-1.44212354092534,-2.30326382086367,-2.01556084004533,2.99541947579387],[-0.428320063116323,-4.70910603127545,-3.22036675260228,-0.361500385389916,4.90593335401898,-6.11740081048277,1.45951280785409,-0.295260426176817,-3.79455787820976,-3.38623995026578,-2.94513579341418,-0.334851560562066,3.11618924831373,-0.407630055723441,-1.70592054544131,4.53218541108164,-0.547838824351713,2.95905540384147,-0.3328830219648,-2.52345521563404,-5.00974029644362,2.55495502696892,3.72759444102066,4.09341265878531,0.535086977697917,-2.55436656165585,-0.489131074052537,-3.31189195540326,2.28321778078834,-0.553329236290374,-3.07188503778528,-4.62281271950067,-2.71263981346305,0.546718574076907,-0.123967184703625,-4.15834336220222,-2.05216745539238,-1.58586468620702,-1.2922912203949,0.528004249233093,-0.554299663740119,-4.01164215259081,-1.96178162554773,1.02509575125028]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="cluster-4" class="section level5">
 <h5>Cluster 4</h5>
 <div id="htmlwidget-befc44a0455bbf180277" style="width:960px;height:500px;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-befc44a0455bbf180277">{"x":{"filter":"none","data":[["Igfbp2","Tgfb2","Hoxd9","Zic3","F2rl1","Cdh11","Hand1","Gm6736","Prom1","Plac1","Slc2a1","Snx10","Etv4","Acot7","Rerg","Cdkn1a","Foxf1","Pmaip1","Scn2b","Slc39a1","Apln","Prss40","Fgf8","Nt5e","Cldn6","P3h1","Bcat1","Hltf","Cdh1","Gm43558","Ets1","Maged1","Sp5","Foxb1","Cfc1","Tcea3","Gm12138","Phlda2","B3gnt7"],[1,1,1,1,2,2,3,3,3,3,4,4,5,5,5,6,6,7,7,8,8,10,10,10,11,11,11,12,12,13,13,14,15,15,17,17,18,19,20],[1.20538788092649e-08,7.84823798706733e-07,6.74201565000355e-08,1.71865117742753e-07,3.70611962017472e-08,6.60649677125066e-07,4.54935526846759e-08,6.38583259381587e-07,1.46149481355195e-06,1.7535123415187e-05,1.70850862419418e-07,8.71273211519181e-07,1.14884754304497e-06,1.13643760847888e-06,1.06962868139734e-06,2.33926646583707e-05,2.70394680815217e-06,1.6511236030547e-06,6.15452618619409e-06,1.56888932259857e-05,3.49034684906704e-06,4.73968590794026e-06,1.29846328807161e-05,1.62236856503075e-05,5.4654014592036e-06,2.80624652370922e-05,3.33504108890999e-05,3.37975437240469e-05,5.47876823005064e-06,6.34287167520784e-06,1.48700045161287e-05,1.21363535855594e-05,1.32189564296437e-05,3.44549156294723e-05,3.21246718489037e-05,2.09005108341337e-05,2.87487725899756e-05,2.32743566841745e-05,2.37656884700319e-05],[0.000668640711428732,0.00483303963161805,0.000934965875303367,0.00158892165771804,0.000841190953657219,0.00458086227997557,0.000841190953657219,0.00458086227997557,0.00579075562875285,0.0335410631366841,0.00158892165771804,0.00483303963161805,0.0049021324661729,0.0049021324661729,0.0049021324661729,0.0399486819733679,0.00937441458718807,0.00610596515900316,0.0159929743043388,0.032140859525293,0.0113890017685057,0.014606395388853,0.0293307492843507,0.032140859525293,0.015195637624457,0.045563518981101,0.0490063749969861,0.0490063749969861,0.015195637624457,0.0159929743043388,0.0317251546351606,0.0292702465106334,0.0293307492843507,0.0490063749969861,0.0490063749969861,0.0386457412160077,0.045563518981101,0.0399486819733679,0.0399486819733679],[-4.41852328424863,5.48209719750565,4.17174739745615,-5.50940284980792,-3.65812550962051,5.44341703313944,5.77305576943404,-3.81930538587017,-5.60288659982573,4.39094781201955,-2.40042653488601,-5.53027327479618,-3.24777567627052,-4.02678355884096,-4.24616407884799,-3.17588484928399,4.96873257011195,-6.24770266084831,-4.4148622111505,-1.4813742826849,-4.82820757943157,3.05032867929495,-3.37879780120026,-4.99237187749727,-5.00819871358822,3.79713666700443,-1.71680177797317,-4.95911951285865,-5.27482710106884,-2.24954317888402,3.76853694580905,1.36691213339028,-3.59920932451201,-3.98199203071175,3.85580474978819,-3.1388200085214,-3.85752326518403,3.46720524713741,-3.04504820400703],[-3.00539188016769,5.48209719750565,3.29372705220931,-5.41571249600136,-1.99519298215982,2.69088282189498,3.69504320482304,-3.43212430130968,-5.2553583624838,4.39094781201955,-0.969449257088678,-2.24603225689793,-1.61568183316235,-2.46551554018301,-2.23385688044642,-2.83532242863747,3.44473593987827,-3.90457212996746,-1.82860830872397,-0.579634700281489,-2.69616557627381,1.71712298718356,-2.10627001882273,-3.58980524046583,-1.40391372593533,2.41270034571171,-0.734791800725823,-2.05776063830676,-4.14137125038368,-0.831787255398591,3.28086015170529,1.19389189637123,-2.77913271131084,-3.03556116361423,2.49338710678586,-2.47943576979576,-3.05419680388051,1.77290711276286,-1.70568952518399],[-3.96776961657054,3.14234007812851,4.17174739745615,-3.90110330988819,-1.4321231139854,5.44341703313944,4.01425273322625,-2.18639495759804,-5.31265201310264,3.51946637339253,-2.02204342493415,-2.93445267370404,-2.9047108156941,-3.19873719179364,-0.929394482388045,-3.17588484928399,4.62325140759696,-4.7034237758809,-2.60494483644601,-1.4813742826849,-3.5437312381096,2.25270018118181,-3.30452434032491,-3.34218488287489,-4.11341263851157,3.79713666700443,-0.770625148955847,-2.08326574416339,-4.70079925763995,-1.33635944374591,2.20806689900507,0.916449703043932,-1.93202911645879,-2.12546792237143,3.43327492951264,-2.53090670903548,-2.0112857139809,1.32670697346945,-2.13178170993662],[-4.03277676902295,2.11572633693339,4.13534667327811,-5.50940284980792,-2.35171400606489,3.90198911836244,4.34017988370395,-3.81930538587017,-5.60288659982573,3.8395779651382,-1.62422317766049,-5.53027327479618,-2.56549942436763,-3.19257782009926,-4.24616407884799,-1.94656531611249,4.69616380917439,-5.59091279208656,-4.4148622111505,-0.370385441869233,-4.44867952366517,1.94646947291446,-2.96960160494477,-4.99237187749727,-2.30697416636714,1.18565815604373,-1.71680177797317,-4.95911951285865,-4.15170567825365,-0.400446624812649,2.82963505974067,1.12429142729444,-3.22037781392473,-2.29852386997209,3.11313528205854,-2.64142801744374,-3.36817401045329,2.14901827839409,-2.67649433314801],[-4.41852328424863,3.51186979829934,3.46027180927431,-4.97659609560062,-3.65812550962051,4.51432519884887,5.77305576943404,-3.85958700183418,-5.33893656484691,4.39094781201955,-2.40042653488601,-3.6200262853321,-3.24777567627052,-4.02678355884096,-3.40307331412692,-2.97080611479959,4.96873257011195,-6.24770266084831,-3.57221295817992,-0.782209207880787,-4.82820757943157,3.05032867929495,-3.37879780120026,-4.54232841203264,-5.00819871358822,1.62254413765213,-0.882087677621193,-1.62671489224223,-5.27482710106884,-2.24954317888402,3.76853694580905,1.36691213339028,-3.59920932451201,-3.98199203071175,3.85580474978819,-3.1388200085214,-3.85752326518403,3.46720524713741,-3.04504820400703]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.3<\/th>\n      <th>logFC.5<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="cluster-5" class="section level5">
-<h5>Cluster 5</h5>
-<div id="htmlwidget-eda7101a3cccae767412" style="width:960px;height:500px;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-eda7101a3cccae767412">{"x":{"filter":"none","data":[["Igfbp2","Ankrd40","Fabp7","F2rl1","Hand1","Slc2a1","Acot7","Etv4","Pmaip1","Apln","Foxf1","Prss40","Cldn6","Gm43558","Cdh1","Maged1","Sp5","Ets1"],[1,1,2,2,3,4,5,6,7,8,9,10,11,12,12,14,15,16],[1.20538788092649e-08,7.47017809792786e-07,1.29793867240453e-05,3.70611962017472e-08,4.54935526846759e-08,1.70850862419418e-07,1.13643760847888e-06,1.14884754304497e-06,1.6511236030547e-06,3.49034684906704e-06,3.69492479017818e-06,4.73968590794026e-06,5.4654014592036e-06,6.34287167520784e-06,5.47876823005064e-06,1.21363535855594e-05,1.32189564296437e-05,1.48700045161287e-05],[0.000668640711428732,0.00828756498540313,0.0431334548299275,0.000841190953657219,0.000841190953657219,0.00236931704731688,0.0091039602943211,0.0091039602943211,0.0114486846731309,0.0204961173035974,0.0204961173035974,0.0233779040376261,0.0233779040376261,0.025131816763961,0.0233779040376261,0.0431334548299275,0.0431334548299275,0.0458252233618987],[4.41852328424863,-4.63351758530628,-4.30340538384554,3.65812550962051,-5.77305576943404,2.40042653488601,4.02678355884096,3.24777567627052,6.24770266084831,4.82820757943157,-4.96873257011195,-3.05032867929495,5.00819871358822,2.24954317888402,5.27482710106884,-1.36691213339028,3.59920932451201,-3.76853694580905],[1.41313140408094,-4.63351758530628,-4.30340538384554,1.66293252746068,-2.078012564611,1.43097727779734,1.56126801865795,1.63209384310817,2.34313053088086,2.13204200315776,-1.52399663023368,-1.33320569211139,3.60428498765289,1.41775592348543,1.13345585068516,-0.173020237019057,0.820076613201167,-0.487676794103765],[0.450753667678089,-1.95835019285041,-0.762472445839607,2.2260023956351,-1.75880303620779,0.378383109951862,0.828046367047317,0.343064860576416,1.54427888496741,1.28447634132197,-0.345481162514988,-0.797628498113141,0.894786075076645,0.913183735138111,0.574027843428894,-0.450462430346351,1.66718020805322,-1.56047004680398],[0.385746515225677,-2.35324781596087,-1.81780816129959,1.30641150355562,-1.43287588573009,0.776203357225524,0.8342057387417,0.682276251902888,0.65678986876175,0.379528055766396,-0.272568760937553,-1.10385920638049,2.70122454722108,1.84909655407137,1.12312142281519,-0.242620706095846,0.378831510587275,-0.938901886068385],[4.41852328424863,-3.05506316312941,-2.37462335739407,3.65812550962051,-5.77305576943404,2.40042653488601,4.02678355884096,3.24777567627052,6.24770266084831,4.82820757943157,-4.96873257011195,-3.05032867929495,5.00819871358822,2.24954317888402,5.27482710106884,-1.36691213339028,3.59920932451201,-3.76853694580905]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.3<\/th>\n      <th>logFC.4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-befc44a0455bbf180277">{"x":{"filter":"none","data":[["Usp33","Apln","Cul7","Cdh11","Ccnb1","Pmaip1","Tmem9b","Foxb1","F2rl1","Foxf1","Igfbp2","Cfc1","Prom1","Tbx3","Hand1","Acot7","Phlda2"],[1,1,2,2,3,3,4,4,5,6,7,8,9,10,11,12,13],[2.85624296600275e-06,4.41539662868185e-09,4.18095635566727e-06,4.74545453481008e-08,7.16009234524635e-06,5.1023658736189e-08,1.21715937856313e-05,3.05190184105725e-07,1.04751671256574e-06,2.99819708795822e-06,3.37439500775357e-06,4.82446573925878e-06,5.51166522601953e-06,6.30274231787599e-06,7.26297404529154e-06,9.03623031802287e-06,1.48859478781309e-05],[0.0233976331843873,0.000244926466389611,0.0257690922228021,0.00094344445791838,0.0287774595190262,0.00094344445791838,0.042198154930172,0.00423230117563216,0.0116213599125468,0.0233976331843873,0.0233976331843873,0.0267617939022424,0.0277943256138663,0.0287774595190262,0.0287774595190262,0.0334165821314031,0.0485728479263411],[4.19271879973114,4.70910603127545,2.79182519244277,-4.90593335401898,1.61947012081074,6.11740081048277,3.35865171126784,3.38623995026578,2.94513579341418,-4.53218541108164,3.22036675260228,-2.95905540384147,5.00974029644362,-3.72759444102066,-4.09341265878531,3.31189195540326,-2.28321778078834],[-0.541398950421208,-0.702273666811936,-0.0683774596298514,0.124034778700433,0.0603855109232825,-0.0232327897716651,1.61826299453532,1.32672166169226,0.827884974269651,-0.00518087211469406,-0.660960576334888,0.610997345704072,-0.20892226430407,-0.369593460821005,0.51877521367416,0.0849670733694161,0.143318238087537],[4.19271879973114,1.73025408260224,2.79182519244277,0.695614940641342,1.61947012081074,2.61061907064501,3.35865171126784,1.56694221940207,2.04864902981054,-1.00448548663129,0.440577887029457,-0.675464127855595,1.44877955481025,-0.219853488755072,-1.37448967592494,1.29533628656359,-2.13678963311858],[0.123967184703625,4.70910603127545,0.568317152434461,-4.90593335401898,0.518587565641907,6.11740081048277,0.413220248031559,3.38623995026578,2.94513579341418,-4.53218541108164,3.22036675260228,-2.95905540384147,5.00974029644362,-3.72759444102066,-4.09341265878531,3.31189195540326,-2.28321778078834]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.logFC<\/th>\n      <th>logFC.1<\/th>\n      <th>logFC.2<\/th>\n      <th>logFC.3<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="heatmap" class="section level4 tabset">
-<h4>Heatmap</h4>
+<h4 class="tabset">Heatmap</h4>
 <p>Plot heatmap of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
   
@@ -747,26 +833,170 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="cluster-1-1" class="section level5">
 <h5>Cluster 1</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-7-1.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-2-1" class="section level5">
 <h5>Cluster 2</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-7-2.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-2">
+Past versions of unnamed-chunk-7-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-7-2.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-3-1" class="section level5">
 <h5>Cluster 3</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-7-3.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-3">
+Past versions of unnamed-chunk-7-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-7-3.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-4-1" class="section level5">
 <h5>Cluster 4</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-7-4.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-4">
+Past versions of unnamed-chunk-7-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-7-4.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="cluster-5-1" class="section level5">
-<h5>Cluster 5</h5>
-<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-7-5.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 </div>
 <div id="dimension" class="section level4 tabset">
-<h4>Dimension</h4>
+<h4 class="tabset">Dimension</h4>
 <p>Plot reduced dimension coloured by gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -788,26 +1018,170 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="cluster-1-2" class="section level5">
 <h5>Cluster 1</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-8-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
+Past versions of unnamed-chunk-8-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-8-1.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-2-2" class="section level5">
 <h5>Cluster 2</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-8-2.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-2">
+Past versions of unnamed-chunk-8-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-8-2.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-3-2" class="section level5">
 <h5>Cluster 3</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-8-3.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-3">
+Past versions of unnamed-chunk-8-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-8-3.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-4-2" class="section level5">
 <h5>Cluster 4</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-8-4.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-4">
+Past versions of unnamed-chunk-8-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-8-4.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="cluster-5-2" class="section level5">
-<h5>Cluster 5</h5>
-<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-8-5.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 </div>
 <div id="expression" class="section level4 tabset">
-<h4>Expression</h4>
+<h4 class="tabset">Expression</h4>
 <p>Plot distribution of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -829,22 +1203,166 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="cluster-1-3" class="section level5">
 <h5>Cluster 1</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-9-1.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-2-3" class="section level5">
 <h5>Cluster 2</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-9-2.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-2">
+Past versions of unnamed-chunk-9-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-9-2.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-3-3" class="section level5">
 <h5>Cluster 3</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-9-3.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-3">
+Past versions of unnamed-chunk-9-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-9-3.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="cluster-4-3" class="section level5">
 <h5>Cluster 4</h5>
 <p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-9-4.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-4">
+Past versions of unnamed-chunk-9-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/figure/08-marker-detection.Rmd/unnamed-chunk-9-4.png" target="_blank">6d5c122</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2020-10-09
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="cluster-5-3" class="section level5">
-<h5>Cluster 5</h5>
-<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-9-5.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 </div>
 </div>
@@ -857,11 +1375,11 @@ sig &lt;- lapply(res, subset, FDR &lt; 0.05)
 
 sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="table-1" class="section level4 tabset">
-<h4>Table</h4>
+<h4 class="tabset">Table</h4>
 <p>Create a table of all significant marker genes for each cluster:</p>
 </div>
 <div id="heatmap-1" class="section level4 tabset">
-<h4>Heatmap</h4>
+<h4 class="tabset">Heatmap</h4>
 <p>Plot heatmap of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
   
@@ -880,7 +1398,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="dimension-1" class="section level4 tabset">
-<h4>Dimension</h4>
+<h4 class="tabset">Dimension</h4>
 <p>Plot reduced dimension coloured by gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -901,7 +1419,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="expression-1" class="section level4 tabset">
-<h4>Expression</h4>
+<h4 class="tabset">Expression</h4>
 <p>Plot distribution of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -934,11 +1452,21 @@ sig &lt;- lapply(res, subset, FDR &lt; 0.05)
 
 sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="table-2" class="section level4 tabset">
-<h4>Table</h4>
+<h4 class="tabset">Table</h4>
 <p>Create a table of all significant marker genes for each cluster:</p>
+<div id="cluster-1-4" class="section level5">
+<h5>Cluster 1</h5>
+<div id="htmlwidget-eda7101a3cccae767412" style="width:960px;height:500px;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eda7101a3cccae767412">{"x":{"filter":"none","data":[["Tspan13","Igfbp2"],[1,2],[1.21874339117794e-06,1.64281095642936e-06],[0.0455641832820466,0.0455641832820466],[0.952380952380952,0.945887445887446],[0.651785714285714,0.586309523809524],[0.952380952380952,0.945887445887446],[0.692176870748299,0.666666666666667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.AUC<\/th>\n      <th>AUC.2<\/th>\n      <th>AUC.3<\/th>\n      <th>AUC.4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="cluster-3-4" class="section level5">
+<h5>Cluster 3</h5>
+<div id="htmlwidget-54930f36317adae777b9" style="width:960px;height:500px;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-54930f36317adae777b9">{"x":{"filter":"none","data":[["Tspan13","Ndufb8","Foxf1","Igfbp2","Cfl1","Cdh11","Lsm7","Apln","Plac1","Etv4","Cdh1","Pmaip1","Cdx1","B3gnt7","Sp8","Slc2a1","Nkx1-2","Hand1"],[1,1,1,2,2,2,3,3,4,5,6,7,7,8,8,10,12,13],[1.21874339117794e-06,1.38976536424516e-06,1.4304359460188e-06,1.64281095642936e-06,7.22585364901321e-06,2.06112255072259e-06,8.35173775774983e-06,1.93229455988322e-06,4.18404419584084e-06,3.04594992921845e-06,4.73814296604273e-06,8.04431793273731e-06,1.1050847986564e-05,1.30149397725038e-05,8.40926046791563e-06,1.5089313556898e-05,1.51061086098701e-05,1.52643045301993e-05],[0.0190554215018555,0.0190554215018555,0.0190554215018555,0.0190554215018555,0.035882314416596,0.0190554215018555,0.035882314416596,0.0190554215018555,0.0290116394484359,0.0241374126462395,0.0292032809410396,0.035882314416596,0.0437858277616208,0.0470403464774826,0.035882314416596,0.0470403464774826,0.0470403464774826,0.0470403464774826],[0.0476190476190476,0.0142045454545455,0.853896103896104,0.0541125541125541,0.0454545454545455,0.899350649350649,0.0482954545454545,0.112824675324675,0.818181818181818,0.0735930735930736,0.0822510822510823,0.12012987012987,0.0865800865800866,0.0909090909090909,0.11038961038961,0.12012987012987,0.126623376623377,0.86525974025974],[0.0476190476190476,0.532467532467532,0.852813852813853,0.0541125541125541,0.38961038961039,0.928571428571429,0.5,0.0898268398268398,0.75974025974026,0.0735930735930736,0.0822510822510823,0.135281385281385,0.0865800865800866,0.0909090909090909,0.123376623376623,0.106060606060606,0.106060606060606,0.887445887445887],[0.161931818181818,0.0142045454545455,0.78125,0.1875,0.0454545454545455,0.894886363636364,0.0482954545454545,0.288352272727273,0.786931818181818,0.107954545454545,0.190340909090909,0.296875,0.269886363636364,0.335227272727273,0.164772727272727,0.15625,0.357954545454545,0.767045454545455],[0.141233766233766,0.238636363636364,0.853896103896104,0.102272727272727,0.318181818181818,0.899350649350649,0.300324675324675,0.112824675324675,0.818181818181818,0.104707792207792,0.113636363636364,0.12012987012987,0.157467532467532,0.13474025974026,0.11038961038961,0.12012987012987,0.126623376623377,0.86525974025974]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Top<\/th>\n      <th>p.value<\/th>\n      <th>FDR<\/th>\n      <th>summary.AUC<\/th>\n      <th>AUC.1<\/th>\n      <th>AUC.2<\/th>\n      <th>AUC.4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 <div id="heatmap-2" class="section level4 tabset">
-<h4>Heatmap</h4>
+<h4 class="tabset">Heatmap</h4>
 <p>Plot heatmap of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
   
@@ -955,9 +1483,17 @@ sig &lt;- Filter(nrow, sig)</code></pre>
   cat(&quot;\n\n&quot;)
   
 }</code></pre>
+<div id="cluster-1-5" class="section level5">
+<h5>Cluster 1</h5>
+<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-17-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cluster-3-5" class="section level5">
+<h5>Cluster 3</h5>
+<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-17-2.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 <div id="dimension-2" class="section level4 tabset">
-<h4>Dimension</h4>
+<h4 class="tabset">Dimension</h4>
 <p>Plot reduced dimension coloured by gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -976,9 +1512,17 @@ sig &lt;- Filter(nrow, sig)</code></pre>
   cat(&quot;\n\n&quot;)
 
 }</code></pre>
+<div id="cluster-1-6" class="section level5">
+<h5>Cluster 1</h5>
+<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-18-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cluster-3-6" class="section level5">
+<h5>Cluster 3</h5>
+<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-18-2.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 <div id="expression-2" class="section level4 tabset">
-<h4>Expression</h4>
+<h4 class="tabset">Expression</h4>
 <p>Plot distribution of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -997,6 +1541,14 @@ sig &lt;- Filter(nrow, sig)</code></pre>
   cat(&quot;\n\n&quot;)
 
 }</code></pre>
+<div id="cluster-1-7" class="section level5">
+<h5>Cluster 1</h5>
+<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-19-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cluster-3-7" class="section level5">
+<h5>Cluster 3</h5>
+<p><img src="figure/08-marker-detection.Rmd/unnamed-chunk-19-2.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 </div>
 <div id="specific-1" class="section level3">
@@ -1008,11 +1560,11 @@ sig &lt;- lapply(res, subset, FDR &lt; 0.05)
 
 sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="table-3" class="section level4 tabset">
-<h4>Table</h4>
+<h4 class="tabset">Table</h4>
 <p>Create a table of all significant marker genes for each cluster:</p>
 </div>
 <div id="heatmap-3" class="section level4 tabset">
-<h4>Heatmap</h4>
+<h4 class="tabset">Heatmap</h4>
 <p>Plot heatmap of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
   
@@ -1031,7 +1583,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="dimension-3" class="section level4 tabset">
-<h4>Dimension</h4>
+<h4 class="tabset">Dimension</h4>
 <p>Plot reduced dimension coloured by gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -1052,7 +1604,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="expression-3" class="section level4 tabset">
-<h4>Expression</h4>
+<h4 class="tabset">Expression</h4>
 <p>Plot distribution of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -1085,11 +1637,11 @@ sig &lt;- lapply(res, subset, FDR &lt; 0.05)
 
 sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="table-4" class="section level4 tabset">
-<h4>Table</h4>
+<h4 class="tabset">Table</h4>
 <p>Create a table of all significant marker genes for each cluster:</p>
 </div>
 <div id="heatmap-4" class="section level4 tabset">
-<h4>Heatmap</h4>
+<h4 class="tabset">Heatmap</h4>
 <p>Plot heatmap of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
   
@@ -1108,7 +1660,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="dimension-4" class="section level4 tabset">
-<h4>Dimension</h4>
+<h4 class="tabset">Dimension</h4>
 <p>Plot reduced dimension coloured by gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -1129,7 +1681,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="expression-4" class="section level4 tabset">
-<h4>Expression</h4>
+<h4 class="tabset">Expression</h4>
 <p>Plot distribution of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -1159,11 +1711,11 @@ sig &lt;- lapply(res, subset, FDR &lt; 0.05)
 
 sig &lt;- Filter(nrow, sig)</code></pre>
 <div id="table-5" class="section level4 tabset">
-<h4>Table</h4>
+<h4 class="tabset">Table</h4>
 <p>Create a table of all significant marker genes for each cluster:</p>
 </div>
 <div id="heatmap-5" class="section level4 tabset">
-<h4>Heatmap</h4>
+<h4 class="tabset">Heatmap</h4>
 <p>Plot heatmap of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
   
@@ -1182,7 +1734,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="dimension-5" class="section level4 tabset">
-<h4>Dimension</h4>
+<h4 class="tabset">Dimension</h4>
 <p>Plot reduced dimension coloured by gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -1203,7 +1755,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 }</code></pre>
 </div>
 <div id="expression-5" class="section level4 tabset">
-<h4>Expression</h4>
+<h4 class="tabset">Expression</h4>
 <p>Plot distribution of gene expression values for the Top 10 marker genes:</p>
 <pre class="r"><code>for (n in names(sig)) {
 
@@ -1238,7 +1790,7 @@ sig &lt;- Filter(nrow, sig)</code></pre>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.0.2 (2020-06-22)
 Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Catalina 10.15.6
+Running under: macOS Catalina 10.15.7
 
 Matrix products: default
 BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
@@ -1252,54 +1804,57 @@ attached base packages:
 [8] methods   base     
 
 other attached packages:
- [1] scran_1.16.0                scater_1.16.2              
- [3] ggplot2_3.3.2               SingleCellExperiment_1.10.1
- [5] SummarizedExperiment_1.18.2 DelayedArray_0.14.1        
- [7] matrixStats_0.57.0          Biobase_2.48.0             
- [9] GenomicRanges_1.40.0        GenomeInfoDb_1.24.2        
-[11] IRanges_2.22.2              S4Vectors_0.26.1           
-[13] BiocGenerics_0.34.0         workflowr_1.6.2            
+ [1] scran_1.18.3                scater_1.18.3              
+ [3] ggplot2_3.3.3               SingleCellExperiment_1.12.0
+ [5] SummarizedExperiment_1.20.0 Biobase_2.50.0             
+ [7] GenomicRanges_1.42.0        GenomeInfoDb_1.26.2        
+ [9] IRanges_2.24.1              S4Vectors_0.28.1           
+[11] BiocGenerics_0.36.0         MatrixGenerics_1.2.0       
+[13] matrixStats_0.57.0          workflowr_1.6.2            
 
 loaded via a namespace (and not attached):
- [1] viridis_0.5.1             edgeR_3.30.3             
- [3] BiocSingular_1.4.0        jsonlite_1.7.1           
- [5] viridisLite_0.3.0         DelayedMatrixStats_1.10.1
- [7] statmod_1.4.34            dqrng_0.2.1              
- [9] GenomeInfoDbData_1.2.3    vipor_0.4.5              
-[11] yaml_2.2.1                pillar_1.4.6             
-[13] backports_1.1.10          lattice_0.20-41          
-[15] glue_1.4.2                limma_3.44.3             
-[17] digest_0.6.25             RColorBrewer_1.1-2       
-[19] promises_1.1.1            XVector_0.28.0           
-[21] colorspace_1.4-1          cowplot_1.1.0            
-[23] htmltools_0.5.0           httpuv_1.5.4             
-[25] Matrix_1.2-18             pkgconfig_2.0.3          
-[27] pheatmap_1.0.12           zlibbioc_1.34.0          
-[29] purrr_0.3.4               patchwork_1.0.1          
-[31] scales_1.1.1              later_1.1.0.1            
-[33] BiocParallel_1.22.0       git2r_0.27.1             
-[35] tibble_3.0.3              farver_2.0.3             
-[37] generics_0.0.2            DT_0.15                  
-[39] ellipsis_0.3.1            withr_2.3.0              
-[41] magrittr_1.5              crayon_1.3.4             
-[43] evaluate_0.14             fs_1.5.0                 
-[45] beeswarm_0.2.3            tools_4.0.2              
-[47] lifecycle_0.2.0           stringr_1.4.0            
-[49] munsell_0.5.0             locfit_1.5-9.4           
-[51] irlba_2.3.3               compiler_4.0.2           
-[53] rsvd_1.0.3                rlang_0.4.7              
-[55] grid_4.0.2                RCurl_1.98-1.2           
-[57] BiocNeighbors_1.6.0       rstudioapi_0.11          
-[59] htmlwidgets_1.5.1         crosstalk_1.1.0.1        
-[61] igraph_1.2.5              labeling_0.3             
-[63] bitops_1.0-6              rmarkdown_2.4            
-[65] gtable_0.3.0              codetools_0.2-16         
-[67] R6_2.4.1                  gridExtra_2.3            
-[69] knitr_1.30                dplyr_1.0.2              
-[71] rprojroot_1.3-2           stringi_1.5.3            
-[73] ggbeeswarm_0.6.0          Rcpp_1.0.5               
-[75] vctrs_0.3.4               tidyselect_1.1.0         
-[77] xfun_0.18                </code></pre>
+ [1] bitops_1.0-6              fs_1.5.0                 
+ [3] RColorBrewer_1.1-2        rprojroot_2.0.2          
+ [5] tools_4.0.2               R6_2.5.0                 
+ [7] irlba_2.3.3               DT_0.17                  
+ [9] vipor_0.4.5               DBI_1.1.1                
+[11] colorspace_2.0-0          withr_2.4.1              
+[13] tidyselect_1.1.0          gridExtra_2.3            
+[15] compiler_4.0.2            git2r_0.28.0             
+[17] BiocNeighbors_1.8.2       DelayedArray_0.16.1      
+[19] labeling_0.4.2            scales_1.1.1             
+[21] stringr_1.4.0             digest_0.6.27            
+[23] rmarkdown_2.6             XVector_0.30.0           
+[25] pkgconfig_2.0.3           htmltools_0.5.1.1        
+[27] sparseMatrixStats_1.2.0   limma_3.46.0             
+[29] htmlwidgets_1.5.3         rlang_0.4.10             
+[31] rstudioapi_0.13           DelayedMatrixStats_1.12.2
+[33] farver_2.0.3              generics_0.1.0           
+[35] jsonlite_1.7.2            crosstalk_1.1.1          
+[37] BiocParallel_1.24.1       dplyr_1.0.3              
+[39] RCurl_1.98-1.2            magrittr_2.0.1           
+[41] BiocSingular_1.6.0        GenomeInfoDbData_1.2.4   
+[43] scuttle_1.0.4             patchwork_1.1.1          
+[45] Matrix_1.3-2              Rcpp_1.0.6               
+[47] ggbeeswarm_0.6.0          munsell_0.5.0            
+[49] viridis_0.5.1             lifecycle_0.2.0          
+[51] stringi_1.5.3             whisker_0.4              
+[53] yaml_2.2.1                edgeR_3.32.1             
+[55] zlibbioc_1.36.0           grid_4.0.2               
+[57] promises_1.1.1            dqrng_0.2.1              
+[59] crayon_1.3.4              lattice_0.20-41          
+[61] cowplot_1.1.1             beachmat_2.6.4           
+[63] locfit_1.5-9.4            knitr_1.30               
+[65] pillar_1.4.7              igraph_1.2.6             
+[67] codetools_0.2-18          glue_1.4.2               
+[69] evaluate_0.14             vctrs_0.3.6              
+[71] httpuv_1.5.5              gtable_0.3.0             
+[73] purrr_0.3.4               assertthat_0.2.1         
+[75] xfun_0.20                 rsvd_1.0.3               
+[77] later_1.1.0.1             viridisLite_0.3.0        
+[79] pheatmap_1.0.12           tibble_3.0.5             
+[81] beeswarm_0.2.3            bluster_1.0.0            
+[83] statmod_1.4.35            ellipsis_0.3.1           </code></pre>
 </div>
 </div>
 
@@ -1317,6 +1872,8 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
+
+
 </div>
 </div>
 
@@ -1326,7 +1883,7 @@ footer is added to webpages before the MathJax javascript. -->
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
