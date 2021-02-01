@@ -579,16 +579,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree35d62fcabf4d1625e75164b8e708da9bc78d051ctargetblank35d62fca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/35d62fcabf4d1625e75164b8e708da9bc78d051c" target="_blank">35d62fc</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree041baaccb27b9287efaaa8ddd1b65360ddbdae18targetblank041baaca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/041baaccb27b9287efaaa8ddd1b65360ddbdae18" target="_blank">041baac</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree35d62fcabf4d1625e75164b8e708da9bc78d051ctargetblank35d62fca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree041baaccb27b9287efaaa8ddd1b65360ddbdae18targetblank041baaca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/35d62fcabf4d1625e75164b8e708da9bc78d051c" target="_blank">35d62fc</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/041baaccb27b9287efaaa8ddd1b65360ddbdae18" target="_blank">041baac</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -627,8 +627,7 @@ Ignored files:
     Ignored:    slides/
 
 Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   analysis/interactive.Rmd
+    Modified:   _workflowr.R
 
 </code></pre>
 <p>
@@ -667,6 +666,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/e32a7097780cdb6c8b111846786af29f87780e4f/docs/10-atlas-integration.html" target="_blank">e32a709</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2021-02-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -807,8 +823,8 @@ source(&quot;code/splitByCol.R&quot;)</code></pre>
 <p>Delete large objects and trigger garbage collection:</p>
 <pre class="r"><code>rm(sce, ref); gc()</code></pre>
 <pre><code>            used   (Mb) gc trigger    (Mb) limit (Mb)   max used    (Mb)
-Ncells  10046650  536.6   17404990   929.6         NA   17404990   929.6
-Vcells 765725309 5842.1 2194141056 16740.0      32768 2194131608 16739.9</code></pre>
+Ncells  10046650  536.6   17733971   947.1         NA   17733971   947.1
+Vcells 765725428 5842.1 2194141414 16740.0      32768 2194131727 16739.9</code></pre>
 <p>Subset data to common features:</p>
 <pre class="r"><code>ids &lt;- Reduce(intersect, lapply(all, rownames))
 
@@ -866,9 +882,9 @@ mnn &lt;- correctExperiments(
 )</code></pre>
 <p>Delete large objects and trigger garbage collection:</p>
 <pre class="r"><code>rm(all); gc()</code></pre>
-<pre><code>             used    (Mb) gc trigger    (Mb) limit (Mb)   max used    (Mb)
-Ncells   10104562   539.7   18321548   978.5         NA   18321548   978.5
-Vcells 1536091313 11719.5 3679493696 28072.4      32768 3679319545 28071.0</code></pre>
+<pre><code>            used   (Mb) gc trigger    (Mb) limit (Mb)   max used    (Mb)
+Ncells  10042400  536.4   17733971   947.1         NA   17733971   947.1
+Vcells 779342340 5946.0 3033414050 23143.2      32768 3788570274 28904.5</code></pre>
 <p>Replace rowData slot:</p>
 <pre class="r"><code>rowData(mnn) &lt;- DataFrame(
   gene_id = rownames(mnn),
@@ -955,7 +971,7 @@ locale:
 [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
 
 attached base packages:
-[1] stats4    parallel  stats     graphics  grDevices utils     datasets 
+[1] parallel  stats4    stats     graphics  grDevices utils     datasets 
 [8] methods   base     
 
 other attached packages:
@@ -993,11 +1009,11 @@ loaded via a namespace (and not attached):
  [35] dqrng_0.2.1                   bit_4.0.4                    
  [37] rsvd_1.0.3                    ResidualMatrix_1.0.0         
  [39] httr_1.4.2                    RColorBrewer_1.1-2           
- [41] ellipsis_0.3.1                farver_2.0.3                 
- [43] pkgconfig_2.0.3               XML_3.99-0.5                 
+ [41] ellipsis_0.3.1                pkgconfig_2.0.3              
+ [43] XML_3.99-0.5                  farver_2.0.3                 
  [45] scuttle_1.0.4                 uwot_0.1.10                  
  [47] dbplyr_2.0.0                  locfit_1.5-9.4               
- [49] labeling_0.4.2                tidyselect_1.1.0             
+ [49] tidyselect_1.1.0              labeling_0.4.2               
  [51] rlang_0.4.10                  later_1.1.0.1                
  [53] munsell_0.5.0                 BiocVersion_3.12.0           
  [55] tools_4.0.2                   cachem_1.0.1                 
