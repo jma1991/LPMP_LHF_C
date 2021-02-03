@@ -9,7 +9,7 @@ analysis/cache
 analysis/site_libs
 data/*
 output/*
-renv/
+renv
 renv/**
 shiny/*
 slides/*
