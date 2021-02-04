@@ -2,6 +2,8 @@ git add _workflowr.yml \
 		    _workflowr.R \
 		    _workflowr.sh
 
+git add commit -m "Build site."
+
 git add analysis/_site.yml \
         analysis/about.Rmd \
 		    analysis/index.Rmd \
@@ -17,6 +19,8 @@ git add analysis/_site.yml \
 		    analysis/09-cell-annotation.Rmd \
 		    analysis/10-atlas-integration.Rmd \
 		    analysis/interactive.Rmd
+
+git commit -m "Build site."
 
 git add docs/about.html \
 		    docs/index.html \
@@ -47,6 +51,6 @@ git add docs/figure/01-quality-control.Rmd \
 git add docs/site_libs \
 		    docs/.nojekyll
 
-git commit -m "publish"
+git commit -m "Build site."
 
 git push origin master
