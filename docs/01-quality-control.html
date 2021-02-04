@@ -369,7 +369,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">LPMP-LHF Analysis</a>
+      <a class="navbar-brand" href="index.html">LPMP LHF Analysis</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -386,41 +386,32 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Quality control</li>
     <li>
-      <a href="01-quality-control.html"></a>
+      <a href="01-quality-control.html">Quality control</a>
     </li>
-    <li class="dropdown-header">Normalization</li>
     <li>
-      <a href="02-normalization.html"></a>
+      <a href="02-normalization.html">Normalization</a>
     </li>
-    <li class="dropdown-header">Feature selection</li>
     <li>
-      <a href="03-feature-selection.html"></a>
+      <a href="03-feature-selection.html">Feature selection</a>
     </li>
-    <li class="dropdown-header">Dimensionality reduction</li>
     <li>
-      <a href="04-reduced-dimensions.html"></a>
+      <a href="04-reduced-dimensions.html">Dimensionality reduction</a>
     </li>
-    <li class="dropdown-header">Clustering</li>
     <li>
-      <a href="05-clustering.html"></a>
+      <a href="05-clustering.html">Clustering</a>
     </li>
-    <li class="dropdown-header">Doublet detection</li>
     <li>
-      <a href="06-doublet-detection"></a>
+      <a href="06-doublet-detection.html">Doublet detection</a>
     </li>
-    <li class="dropdown-header">Cell cycle assignment</li>
     <li>
-      <a href="07-cell-cycle.html"></a>
+      <a href="07-cell-cycle.html">Cell cycle assignment</a>
     </li>
-    <li class="dropdown-header">Marker gene detection</li>
     <li>
-      <a href="08-marker-detection.html"></a>
+      <a href="08-marker-detection.html">Marker gene detection</a>
     </li>
-    <li class="dropdown-header">Cell type annotation</li>
     <li>
-      <a href="09-cell-annotation.html"></a>
+      <a href="09-cell-annotation.html">Cell type annotation</a>
     </li>
   </ul>
 </li>
@@ -431,9 +422,8 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Atlas integration</li>
     <li>
-      <a href="10-atlas-integration.html"></a>
+      <a href="10-atlas-integration.html">Atlas integration</a>
     </li>
   </ul>
 </li>
@@ -442,13 +432,12 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown-header">License</li>
-<li>
-  <a href="license.html"></a>
+        <li>
+  <a href="license.html">License</a>
 </li>
 <li>
   <a href="https://github.com/jma1991/LPMP_LHF_C">
-    <span class="fas fa-github"></span>
+    <span class="fab fa-github"></span>
      
   </a>
 </li>
@@ -463,14 +452,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">Quality control</h1>
 <h4 class="author">James Ashmore</h4>
-<h4 class="date">01 February, 2021</h4>
+<h4 class="date">03 February, 2021</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -479,7 +468,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -488,10 +477,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-01
+<strong>Last updated:</strong> 2021-02-03
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>LPMP_LHF_C/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -507,12 +496,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -579,16 +568,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree96beb47d7b5310380bb5764270f2bfa54d68125ftargetblank96beb47a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/96beb47d7b5310380bb5764270f2bfa54d68125f" target="_blank">96beb47</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree94e7e02cf47bcaccb798fc72e986b311481bd91atargetblank94e7e02a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/94e7e02cf47bcaccb798fc72e986b311481bd91a" target="_blank">94e7e02</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree96beb47d7b5310380bb5764270f2bfa54d68125ftargetblank96beb47a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtree94e7e02cf47bcaccb798fc72e986b311481bd91atargetblank94e7e02a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/96beb47d7b5310380bb5764270f2bfa54d68125f" target="_blank">96beb47</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/94e7e02cf47bcaccb798fc72e986b311481bd91a" target="_blank">94e7e02</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -600,25 +589,21 @@ Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
     Ignored:    analysis/cache/
-    Ignored:    data/blacklist.csv
-    Ignored:    data/cell-exploration.csv
-    Ignored:    data/cell-lineage.csv
-    Ignored:    data/gene-sets.csv
-    Ignored:    data/lineage-markers.csv
-    Ignored:    data/pyscenic-activity.csv
-    Ignored:    data/pyscenic-modules.csv
-    Ignored:    data/pyscenic-regulons.csv
-    Ignored:    data/salmon-quant.rds
-    Ignored:    output/01-quality-control.rds
-    Ignored:    output/11-atlas-neighbors.rds
-    Ignored:    output/12-atlas-trajectory.rds
-    Ignored:    output/13-atlas-clustering.rds
-    Ignored:    output/14-atlas-markers.rds
+    Ignored:    renv/.gitignore
+    Ignored:    renv/library/
+    Ignored:    renv/settings.dcf
     Ignored:    shiny/
     Ignored:    slides/
 
 Unstaged changes:
+    Modified:   .gitignore
     Modified:   _workflowr.R
+    Modified:   _workflowr.sh
+    Modified:   analysis/01-quality-control.Rmd
+    Modified:   analysis/11-atlas-neighbors.Rmd
+    Modified:   analysis/_site.yml
+    Modified:   analysis/about.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -657,6 +642,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/3c10524d0733b35701a65436c4c462dc45e6bd6b/docs/01-quality-control.html" target="_blank">3c10524</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2021-02-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -799,7 +801,7 @@ library(scran)</code></pre>
 </div>
 <div id="exploration" class="section level2">
 <h2>Exploration</h2>
-<p>We begin by exploring the dataset which contains cells and 55471 genes.</p>
+<p>We begin by exploring the dataset which contains 96 cells and 55471 genes.</p>
 </div>
 <div id="metrics" class="section level2">
 <h2>Metrics</h2>
@@ -867,7 +869,7 @@ James Ashmore
 </div>
 <div id="dimensionality-reduction" class="section level3 tabset">
 <h3 class="tabset">Dimensionality reduction</h3>
-<p>Calculate dimenionality reduction data:</p>
+<p>Calculate dimensionality reduction data:</p>
 <pre class="r"><code>set.seed(350218714)
 sce &lt;- computeLibraryFactors(sce)
 sce &lt;- logNormCounts(sce)
@@ -2101,7 +2103,7 @@ locale:
 [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
 
 attached base packages:
-[1] parallel  stats4    stats     graphics  grDevices utils     datasets 
+[1] parallel  stats4    stats     graphics  grDevices datasets  utils    
 [8] methods   base     
 
 other attached packages:
@@ -2152,14 +2154,15 @@ loaded via a namespace (and not attached):
 [67] knitr_1.30                pillar_1.4.7             
 [69] igraph_1.2.6              codetools_0.2-18         
 [71] glue_1.4.2                evaluate_0.14            
-[73] vctrs_0.3.6               httpuv_1.5.5             
-[75] polyclip_1.10-0           gtable_0.3.0             
-[77] purrr_0.3.4               assertthat_0.2.1         
-[79] xfun_0.20                 rsvd_1.0.3               
-[81] RSpectra_0.16-0           later_1.1.0.1            
-[83] viridisLite_0.3.0         tibble_3.0.5             
-[85] beeswarm_0.2.3            bluster_1.0.0            
-[87] statmod_1.4.35            ellipsis_0.3.1           </code></pre>
+[73] renv_0.12.5               vctrs_0.3.6              
+[75] httpuv_1.5.5              polyclip_1.10-0          
+[77] gtable_0.3.0              purrr_0.3.4              
+[79] assertthat_0.2.1          xfun_0.20                
+[81] rsvd_1.0.3                RSpectra_0.16-0          
+[83] later_1.1.0.1             viridisLite_0.3.0        
+[85] tibble_3.0.5              beeswarm_0.2.3           
+[87] bluster_1.0.0             statmod_1.4.35           
+[89] ellipsis_0.3.1           </code></pre>
 </div>
 </div>
 

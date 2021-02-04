@@ -90,7 +90,7 @@ wrap_plots(
 
 ### Dimensionality reduction {.tabset}
 
-Calculate dimenionality reduction data:
+Calculate dimensionality reduction data:
 
 ```{r}
 set.seed(350218714)
