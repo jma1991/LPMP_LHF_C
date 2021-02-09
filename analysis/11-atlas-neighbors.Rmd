@@ -48,32 +48,20 @@ library(pheatmap)
 
 Read experiment object:
 
-```{r cache = FALSE}
+```{r}
 sce <- readRDS("output/10-atlas-integration.rds")
 ```
 
 Function to split experiment object by column data:
 
 ```{r}
-splitColData <- function(x, f) {
-  
-  i <- split(seq_along(f), f)
-
-  v <- vector(mode = "list", length = length(i))
-  
-  names(v) <- names(i)
-  
-  for (n in names(i)) { v[[n]] <- x[, i[[n]]] }
-  
-  return(v)
-
-}
+source("code/splitByCol.R")
 ```
 
 Split experiment object by source column:
 
-```{r cache = FALSE}
-sce <- splitColData(sce, sce$source)
+```{r}
+sce <- splitByCol(sce, sce$source)
 ```
 
 Extract corrected PCA matrix for reference and test data:
@@ -93,7 +81,7 @@ knn <- queryKNN(X = dim$reference, query = dim$test, k = 10)
 
 Annotate test data using majority nearest neighbors: 
 
-```{r cache = FALSE}
+```{r}
 sce$test$stage <- apply(knn$index, 1, function(x) names(which.max(table(sce$reference$stage[x]))))
 
 sce$test$celltype <- apply(knn$index, 1, function(x) names(which.max(table(sce$reference$celltype[x]))))
