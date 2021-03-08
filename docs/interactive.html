@@ -574,16 +574,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtreebe7a95e2a488de6c13816dd54ff624b2d30da001targetblankbe7a95ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/be7a95e2a488de6c13816dd54ff624b2d30da001" target="_blank">be7a95e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtreec7e2a9dd73947e3287b5402e551f46cc299b896ftargetblankc7e2a9da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jma1991/LPMP_LHF_C/tree/c7e2a9dd73947e3287b5402e551f46cc299b896f" target="_blank">c7e2a9d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtreebe7a95e2a488de6c13816dd54ff624b2d30da001targetblankbe7a95ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjma1991LPMPLHFCtreec7e2a9dd73947e3287b5402e551f46cc299b896ftargetblankc7e2a9da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/be7a95e2a488de6c13816dd54ff624b2d30da001" target="_blank">be7a95e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jma1991/LPMP_LHF_C/tree/c7e2a9dd73947e3287b5402e551f46cc299b896f" target="_blank">c7e2a9d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -642,6 +642,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/c7e2a9dd73947e3287b5402e551f46cc299b896f/analysis/interactive.Rmd" target="_blank">c7e2a9d</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2021-03-08
+</td>
+<td>
+Build
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/c485e3ac9b1f9ccc866914c33cd98344488fa525/docs/interactive.html" target="_blank">c485e3a</a>
+</td>
+<td>
+James Ashmore
+</td>
+<td>
+2021-03-08
+</td>
+<td>
+Build
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -932,16 +966,16 @@ iSEE(sce, appTitle = &quot;LPMP_LHF_C&quot;, colormap = ecm)</code></pre>
 <pre class="r"><code>deployApp(appDir = &quot;shiny/annotated&quot;, appName = &quot;LPMP_LHF_C&quot;, appTitle = &quot;LPMP_LHF_C&quot;, launch.browser = FALSE, forceUpdate = TRUE)</code></pre>
 <pre><code>Preparing to deploy application...DONE
 Uploading bundle for application: 3004497...DONE
-Deploying bundle: 4316797 for application: 3004497 ...
-Waiting for task: 885378511
-  building: Processing bundle: 4316797
+Deploying bundle: 4317135 for application: 3004497 ...
+Waiting for task: 885423714
+  building: Processing bundle: 4317135
   building: Parsing manifest
-  building: Building image: 4937670
+  building: Building image: 4938141
   building: Installing system dependencies
   building: Fetching packages
   building: Installing packages
   building: Installing files
-  building: Pushing image: 4937670
+  building: Pushing image: 4938141
   deploying: Starting instances
   rollforward: Activating new instances
   terminating: Stopping old instances
@@ -949,7 +983,7 @@ Application successfully deployed to https://jashmore.shinyapps.io/LPMP_LHF_C/</
 <p>Allocate more memory to the iSEE application:</p>
 <pre class="r"><code>configureApp(appName = &quot;LPMP_LHF_C&quot;, appDir = &quot;shiny/annotated&quot;, size = &quot;xlarge&quot;)</code></pre>
 <pre><code>Preparing to deploy application...DONE
-Waiting for task: 885380097
+Waiting for task: 885425412
   deploying: Starting instances
   rollforward: Activating new instances
   terminating: Stopping old instances
@@ -1056,29 +1090,29 @@ iSEEOptions$set(downsample = TRUE)
 iSEEOptions$set(color.maxlevels = 37)
 
 # Create iSEE object
-iSEE(sce, appTitle = &quot;LPMP_LHF_C&quot;, colormap = ecm)</code></pre>
+iSEE(sce, appTitle = &quot;LPMP_LHF_C_ATLAS&quot;, colormap = ecm)</code></pre>
 <p>Deploy the iSEE application to the shiny server:</p>
 <pre class="r"><code>deployApp(appDir = &quot;shiny/integrated&quot;, appName = &quot;LPMP_LHF_C_ATLAS&quot;, appTitle = &quot;LPMP_LHF_C_ATLAS&quot;, launch.browser = FALSE, forceUpdate = TRUE)</code></pre>
 <pre><code>Preparing to deploy application...DONE
 Uploading bundle for application: 3004604...DONE
-Deploying bundle: 4316817 for application: 3004604 ...
-Waiting for task: 885385639
-  building: Processing bundle: 4316817
+Deploying bundle: 4317164 for application: 3004604 ...
+Waiting for task: 885430581
+  building: Processing bundle: 4317164
   building: Parsing manifest
-  building: Building image: 4937724
+  building: Building image: 4938222
   building: Installing system dependencies
   building: Fetching packages
   building: Installing packages
   building: Installing files
-  building: Pushing image: 4937724
+  building: Pushing image: 4938222
   deploying: Starting instances
   rollforward: Activating new instances
-  unstaging: Stopping old instances
+  terminating: Stopping old instances
 Application successfully deployed to https://jashmore.shinyapps.io/LPMP_LHF_C_ATLAS/</code></pre>
 <p>Allocate more memory to the iSEE application:</p>
 <pre class="r"><code>configureApp(appName = &quot;LPMP_LHF_C_ATLAS&quot;, appDir = &quot;shiny/integrated&quot;, size = &quot;xxxlarge&quot;)</code></pre>
 <pre><code>Preparing to deploy application...DONE
-Waiting for task: 885388620
+Waiting for task: 885433429
   deploying: Starting instances
   rollforward: Activating new instances
   terminating: Stopping old instances
