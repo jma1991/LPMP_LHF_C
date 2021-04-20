@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="James Ashmore" />
 
 
-<title>Home</title>
+<title>Secondary exploration</title>
 
 <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -20,6 +21,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -273,6 +277,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -280,6 +347,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -388,7 +465,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Secondary exploration</h1>
+<h4 class="author">James Ashmore</h4>
+<h4 class="date">20 April, 2021</h4>
 
 </div>
 
@@ -416,7 +495,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2021-04-20
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>LPMP_LHF_C/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -438,6 +517,66 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed52694887code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(52694887)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed52694887code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(52694887)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -491,7 +630,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/secondary-exploration.Rmd</code>) and HTML (<code>docs/secondary-exploration.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -517,10 +656,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/19ba2989c0a88b231adf89680f40f7b75a957cd1/docs/index.html" target="_blank">19ba298</a>
+<a href="https://github.com/jma1991/LPMP_LHF_C/blob/90ede409403116410878b9201892ddf0fb4d8f68/analysis/secondary-exploration.Rmd" target="_blank">90ede40</a>
 </td>
 <td>
 James Ashmore
@@ -532,516 +671,6 @@ James Ashmore
 Build
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/f5ab36bbab34b43da1f729093806dc5f0e25e3b8/docs/index.html" target="_blank">f5ab36b</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-30
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/0e6ff0e97b309f4a22e2eef44fdb23c865a22315/docs/index.html" target="_blank">0e6ff0e</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-30
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/1337dad17c89d340f7e5a4e63adeb50e85f8e98a/docs/index.html" target="_blank">1337dad</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-30
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/f01090f696f21e59272dc00c0ce6755e38bc3107/docs/index.html" target="_blank">f01090f</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-29
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/b9177eb08936f733227d77b1b009cb376a445f6d/docs/index.html" target="_blank">b9177eb</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-26
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/203f751d0aeb1a8ca73b68080bdacb5119d0d508/docs/index.html" target="_blank">203f751</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-26
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/8121fd100c9d8148bf7a8d5b05c5ea730064cd44/docs/index.html" target="_blank">8121fd1</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-26
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/b77d0c84cd2fbf4acbee2cee77719689d1288afd/docs/index.html" target="_blank">b77d0c8</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-26
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/c127e62b2d69b0cd2d86d071a6f0b364c6734d6b/docs/index.html" target="_blank">c127e62</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-10
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/3fd558ac71b3df5b56028df2c188ebc7f697d3e1/docs/index.html" target="_blank">3fd558a</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-08
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/c485e3ac9b1f9ccc866914c33cd98344488fa525/docs/index.html" target="_blank">c485e3a</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-03-08
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/d5c09f0cb6031afc80a5e1e26426d82f3c7c13d7/docs/index.html" target="_blank">d5c09f0</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/31b3e5dc20f78c0d820785f72ca75cf2b21af15c/docs/index.html" target="_blank">31b3e5d</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/e3a9368d38263144135f66515c9818b10208e949/docs/index.html" target="_blank">e3a9368</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/2a66265814897d50c914372fc0f5d7076614a0b1/docs/index.html" target="_blank">2a66265</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/fc61a424747c92cb2872797a00668960e027f7e1/docs/index.html" target="_blank">fc61a42</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-09
-</td>
-<td>
-Build
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/691cbbebec62e2002c81ca09ed2bc904fc00bb42/docs/index.html" target="_blank">691cbbe</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-04
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jma1991/LPMP_LHF_C/blob/5a204d7b821532c08996738223094080a6830a25/analysis/index.Rmd" target="_blank">5a204d7</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-04
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/5a204d7b821532c08996738223094080a6830a25/docs/index.html" target="_blank">5a204d7</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-04
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/708b9ae59d180b8e0c33b3807567cff1b13fa5a5/docs/index.html" target="_blank">708b9ae</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/58055dac9143448705e268b030e2f46336995ca4/docs/index.html" target="_blank">58055da</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/681f63cd00a5b705e07f0f71711fadf414f3eacd/docs/index.html" target="_blank">681f63c</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-02-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/ac7671aa15d8f2226cc6ce4b23fdff3f54b88d08/docs/index.html" target="_blank">ac7671a</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2021-01-28
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/bfb366b754d150c4e5a72caa48bf24adbbca83cf/docs/index.html" target="_blank">bfb366b</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-11-03
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jma1991/LPMP_LHF_C/blob/74adc1bad96d9cb2b75947cb91118e185e0f79d5/analysis/index.Rmd" target="_blank">74adc1b</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-10-13
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/35ed767af9014c7f0b04e895ee673acd91770fdc/docs/index.html" target="_blank">35ed767</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-10-13
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/628f72ed548c974381f1ec1e49008c7ceaba3546/docs/index.html" target="_blank">628f72e</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-10-09
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jma1991/LPMP_LHF_C/6d5c1222cfdaf4e5d49bbf47f819c1bd54425e35/docs/index.html" target="_blank">6d5c122</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-10-09
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jma1991/LPMP_LHF_C/blob/2df23c6ff6e7ada48f7bab5ddbbcc2a9a67c7158/analysis/index.Rmd" target="_blank">2df23c6</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-10-09
-</td>
-<td>
-publish
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jma1991/LPMP_LHF_C/blob/2724555d0b9a33ee1e1b8f304068702d363cc662/analysis/index.Rmd" target="_blank">2724555</a>
-</td>
-<td>
-James Ashmore
-</td>
-<td>
-2020-06-30
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1049,8 +678,185 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div id="section" class="section level2">
-<h2></h2>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>Set chunk options:</p>
+<pre class="r"><code>knitr::opts_chunk$set(
+  autodep    = TRUE,
+  cache      = TRUE,
+  cache.path = &quot;cache/secondary-exploration.Rmd/&quot;,
+  dev        = &quot;png&quot;,
+  echo       = TRUE,
+  error      = FALSE,
+  message    = FALSE,
+  warning    = FALSE
+)</code></pre>
+<p>Load Bioconductor packages:</p>
+<pre class="r"><code>library(scater)
+library(scran)
+library(scuttle)
+library(slingshot)</code></pre>
+<p>Load CRAN packages:</p>
+<pre class="r"><code>library(ggforce)
+library(ggplot2)
+library(ggthemes)
+library(pheatmap)</code></pre>
+<p>Read experiment object:</p>
+<pre class="r"><code>sce &lt;- readRDS(&quot;output/10-atlas-integration.rds&quot;)</code></pre>
+<p>Read secondary cluster labels:</p>
+<pre class="r"><code>mem &lt;- read.csv(&quot;output/secondary-clusters.csv&quot;, row.names = 1)</code></pre>
+</div>
+<div id="processing" class="section level2">
+<h2>Processing</h2>
+<p>Add celltype annotation to cluster labels:</p>
+<pre class="r"><code>ids &lt;- c(&quot;Epi/PXM&quot;, &quot;Epi/PXM&quot;, &quot;Epi/Meso&quot;, &quot;LPM&quot;, &quot;LPMP&quot;)
+
+mem$celltype &lt;- ids[mem$cluster]</code></pre>
+<p>Set column labels as celltype annotation:</p>
+<pre class="r"><code>colLabels(sce) &lt;- sce$celltype</code></pre>
+<p>Replace column labels for LPMP data with cluster annotation:</p>
+<pre class="r"><code>colLabels(sce)[sce$batch == &quot;LPMP_LHF&quot;] &lt;- mem$celltype</code></pre>
+</div>
+<div id="exploration" class="section level2">
+<h2>Exploration</h2>
+<p>Create a per-cell data.frame:</p>
+<pre class="r"><code>dat &lt;- makePerCellDF(sce, use.dimred = &quot;UMAP&quot;)
+
+dat &lt;- split(dat, dat$batch == &quot;LPMP_LHF&quot;)
+
+names(dat) &lt;- c(&quot;reference&quot;, &quot;query&quot;)</code></pre>
+<p>Define colour and shape palettes:</p>
+<pre class="r"><code>colour.values &lt;- MouseGastrulationData::EmbryoCelltypeColours
+
+shape.values &lt;- c(&quot;Epi/PXM&quot; = 0, &quot;Epi/PXM&quot; = 1, &quot;Epi/Meso&quot; = 2, &quot;LPM&quot; = 3, &quot;LPMP&quot; = 4)</code></pre>
+<p>Define function to reduce legend size:</p>
+<pre class="r"><code>addSmallLegend &lt;- function(myPlot, pointSize = 0.5, textSize = 3, spaceLegend = 0.1) {
+    myPlot +
+        guides(shape = guide_legend(ncol = 1, override.aes = list(size = pointSize)),
+               color = guide_legend(ncol = 1, override.aes = list(size = pointSize))) +
+        theme(legend.title = element_text(size = textSize), 
+              legend.text  = element_text(size = textSize),
+              legend.key.size = unit(spaceLegend, &quot;lines&quot;))
+}</code></pre>
+<p>Plot UMAP coloured by celltype and shaped by cluster:</p>
+<pre class="r"><code>plt &lt;- ggplot() + 
+  geom_point(
+    data = dat$reference, 
+    mapping = aes(UMAP.1, UMAP.2, colour = label),
+    size = 0.5,
+    inherit.aes = FALSE
+  ) + 
+  geom_point(
+    data = dat$query, 
+    mapping = aes(UMAP.1, UMAP.2, shape = label), 
+    size = 5,
+    inherit.aes = FALSE
+  ) + 
+  scale_colour_manual(
+    name = &quot;Celltype&quot;,
+    values = colour.values
+  ) + 
+  scale_shape_manual(
+    name = &quot;Cluster&quot;,
+    values = shape.values
+  ) + 
+  coord_cartesian(
+    xlim = c(-5, 7),
+    ylim = c(-10, 5)
+  ) +
+  theme_bw() +  
+  theme(aspect.ratio = 1)
+
+addSmallLegend(plt, pointSize = 2, textSize = 8, spaceLegend = 0.75)</code></pre>
+<p><img src="figure/secondary-exploration.Rmd/unnamed-chunk-12-1.png" width="864" style="display: block; margin: auto;" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<div id="session" class="section level3">
+<h3>Session</h3>
+<p>Print session information:</p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Catalina 10.15.7
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+
+attached base packages:
+[1] parallel  stats4    stats     graphics  grDevices datasets  utils    
+[8] methods   base     
+
+other attached packages:
+ [1] pheatmap_1.0.12             ggthemes_4.2.4             
+ [3] ggforce_0.3.2               slingshot_1.8.0            
+ [5] princurve_2.1.6             scuttle_1.0.4              
+ [7] scran_1.18.3                scater_1.18.3              
+ [9] ggplot2_3.3.3               SingleCellExperiment_1.12.0
+[11] SummarizedExperiment_1.20.0 Biobase_2.50.0             
+[13] GenomicRanges_1.42.0        GenomeInfoDb_1.26.2        
+[15] IRanges_2.24.1              S4Vectors_0.28.1           
+[17] BiocGenerics_0.36.0         MatrixGenerics_1.2.0       
+[19] matrixStats_0.57.0          workflowr_1.6.2            
+
+loaded via a namespace (and not attached):
+  [1] ggbeeswarm_0.6.0              colorspace_2.0-0             
+  [3] ellipsis_0.3.1                rprojroot_2.0.2              
+  [5] bluster_1.0.0                 XVector_0.30.0               
+  [7] BiocNeighbors_1.8.2           fs_1.5.0                     
+  [9] rstudioapi_0.13               farver_2.0.3                 
+ [11] bit64_4.0.5                   AnnotationDbi_1.52.0         
+ [13] interactiveDisplayBase_1.28.0 codetools_0.2-18             
+ [15] sparseMatrixStats_1.2.0       cachem_1.0.1                 
+ [17] knitr_1.30                    polyclip_1.10-0              
+ [19] dbplyr_2.0.0                  shiny_1.6.0                  
+ [21] httr_1.4.2                    BiocManager_1.30.10          
+ [23] compiler_4.0.2                dqrng_0.2.1                  
+ [25] assertthat_0.2.1              Matrix_1.3-2                 
+ [27] fastmap_1.1.0                 limma_3.46.0                 
+ [29] later_1.1.0.1                 tweenr_1.0.1                 
+ [31] BiocSingular_1.6.0            htmltools_0.5.1.1            
+ [33] tools_4.0.2                   rsvd_1.0.3                   
+ [35] igraph_1.2.6                  gtable_0.3.0                 
+ [37] glue_1.4.2                    GenomeInfoDbData_1.2.4       
+ [39] dplyr_1.0.3                   rappdirs_0.3.1               
+ [41] Rcpp_1.0.6                    MouseGastrulationData_1.4.0  
+ [43] vctrs_0.3.6                   ape_5.4-1                    
+ [45] nlme_3.1-151                  ExperimentHub_1.16.0         
+ [47] DelayedMatrixStats_1.12.2     xfun_0.20                    
+ [49] stringr_1.4.0                 beachmat_2.6.4               
+ [51] mime_0.9                      lifecycle_0.2.0              
+ [53] irlba_2.3.3                   renv_0.12.5                  
+ [55] statmod_1.4.35                AnnotationHub_2.22.0         
+ [57] edgeR_3.32.1                  zlibbioc_1.36.0              
+ [59] MASS_7.3-53                   scales_1.1.1                 
+ [61] promises_1.1.1                RColorBrewer_1.1-2           
+ [63] curl_4.3                      yaml_2.2.1                   
+ [65] memoise_2.0.0                 gridExtra_2.3                
+ [67] stringi_1.5.3                 RSQLite_2.2.3                
+ [69] BiocVersion_3.12.0            BiocParallel_1.24.1          
+ [71] rlang_0.4.10                  pkgconfig_2.0.3              
+ [73] bitops_1.0-6                  evaluate_0.14                
+ [75] lattice_0.20-41               purrr_0.3.4                  
+ [77] labeling_0.4.2                bit_4.0.4                    
+ [79] tidyselect_1.1.0              magrittr_2.0.1               
+ [81] R6_2.5.0                      generics_0.1.0               
+ [83] DelayedArray_0.16.1           DBI_1.1.1                    
+ [85] pillar_1.4.7                  whisker_0.4                  
+ [87] withr_2.4.1                   RCurl_1.98-1.2               
+ [89] tibble_3.0.5                  crayon_1.3.4                 
+ [91] BiocFileCache_1.14.0          rmarkdown_2.6                
+ [93] viridis_0.5.1                 locfit_1.5-9.4               
+ [95] grid_4.0.2                    blob_1.2.1                   
+ [97] git2r_0.28.0                  digest_0.6.27                
+ [99] xtable_1.8-4                  httpuv_1.5.5                 
+[101] munsell_0.5.0                 beeswarm_0.2.3               
+[103] viridisLite_0.3.0             vipor_0.4.5                  </code></pre>
+</div>
 </div>
 
 
@@ -1069,6 +875,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -1101,6 +909,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
