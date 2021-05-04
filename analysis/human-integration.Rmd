@@ -56,6 +56,14 @@ Read mouse experiment object:
 sce <- readRDS("output/secondary-analysis.rds")
 ```
 
+Revalue label annotation:
+
+```{r}
+ann <- c("1" = "Epi/PXM", "2" = "Epi/PXM", "3" = "Epith/Meso", "4" = "LPM", "5" = "LPMP")
+
+sce$label <- unname(ann[as.character(sce$label)])
+```
+
 Define function to clean mouse experiment object:
 
 ```{r}
