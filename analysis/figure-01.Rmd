@@ -1,0 +1,110 @@
+---
+title: "Figure 1"
+author: "James Ashmore"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Setup
+
+Set chunk options:
+
+```{r}
+knitr::opts_chunk$set(
+  autodep    = TRUE,
+  cache      = TRUE,
+  cache.path = "cache/figure-01.Rmd/",
+  dev        = "png",
+  echo       = TRUE,
+  error      = FALSE,
+  message    = FALSE,
+  warning    = FALSE
+)
+```
+
+Load Bioconductor packages:
+
+```{r}
+library(scater)
+library(scran)
+library(scuttle)
+```
+
+Load CRAN packages:
+
+```{r}
+library(pheatmap)
+```
+
+## Processing
+
+Read experiment data:
+
+```{r}
+sce <- readRDS("output/secondary-analysis.rds")
+```
+
+Rename column labels:
+
+```{r}
+levels(sce$label) <- c("1" = "Epi/PXM", "2" = "Epi/PXM", "3" = "Epith/Meso", "4" = "LPM", "5" = "LPMP")
+```
+
+## Markers
+
+Find marker genes:
+
+```{r}
+res <- findMarkers(sce, sce$label, test.type = "t", pval.type = "some")
+```
+
+Subset by significance:
+
+```{r}
+sig <- lapply(res, subset, FDR < 0.05)
+```
+
+Get top markers:
+
+```{r}
+ids <- lapply(sig, head, n = Inf)
+
+ids <- lapply(ids, rownames)
+
+ids <- unique(unlist(ids))
+```
+
+Create column annotation colours:
+
+```{r}
+pal <- list(
+  label = c("Epi/PXM" = "#F28E2B", "Epith/Meso" = "#59A14F", "LPM" = "#EDC948", "LPMP" = "#E15759")
+)
+```
+
+Plot heatmap of gene expression values:
+
+```{r fig.width = 8, fig.height = 6}
+plotHeatmap(
+  object = sce, 
+  features = ids, 
+  center = TRUE, 
+  zlim = c(-3, +3), 
+  symmetric = TRUE, 
+  colour_columns_by = "label", 
+  column_annotation_colors = pal, 
+  order_columns_by = "label", 
+  cutree_rows = 5, 
+  gaps_col = c(38, 57, 74), 
+)
+```
+
+## Summary
+
+Print session information:
+
+```{r}
+sessionInfo()
+```
